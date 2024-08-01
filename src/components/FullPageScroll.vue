@@ -100,13 +100,13 @@ export default {
 .indicators span {
   width: 10px;
   height: 10px;
-  background: #ddd;
+  background: #fff;
   border-radius: 50%;
   margin: 5px 0;
   cursor: pointer;
 }
 
 .indicators .active {
-  background: var(--text-dark);
+  background: var(--secondary-dark);
 }
 </style>
