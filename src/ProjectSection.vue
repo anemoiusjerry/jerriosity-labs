@@ -28,9 +28,10 @@ export default {
   <section>
     <div class="mx-auto flex flex-col justify-center items-center">
       <h1 class="text-2xl mb-5">My Projects</h1>
-      <div class="flex flex-wrap justify-center">
+        <div class="flex flex-wrap justify-center">
         <expandable-card v-for="proj in projects" :title="proj.title" :summary="proj.summary" :imgSrc="proj.imgSrc"/>
       </div>
+     
     </div>
   </section>
 </template>

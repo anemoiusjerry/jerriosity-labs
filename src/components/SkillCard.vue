@@ -4,20 +4,61 @@ export default {
   props: {
     imgSrcs: Array,
     imgAlt: String,
-    title: String
+    title: String,
+    exp: String
   }
 }
 </script>
 
 <template>
-  <div class="bg-gray-900 rounded-lg p-5 pl-7 pr-7 flex flex-col items-center">
-    <div class="flex flex-row">
-      <div v-for="path in imgSrcs" class="relative w-20 h-20 mb-2">
-        <img class="absolute w-full h-full" :src="path" :alt="imgAlt" />
+
+  <div class="card">
+    <div class="card-body">
+      <div class="card-front bg-gray-900">
+        <div class="flex flex-row mb-3">
+          <div v-for="path in imgSrcs">
+            <img class="w-20 h-20" :src="path" :alt="imgAlt" />
+          </div>
+        </div>
+        <h1 class="text-sm text-white">{{ title }}</h1>
+      </div>
+
+      <div class="card-back bg-gray-900">
+        <h1 class="font-bold text-white">{{ exp }}</h1>
       </div>
     </div>
-    <h5 class="text-sm text-white font-medium">{{ title }}</h5>
   </div>
+
 </template>
 
-<style></style>
+<style scoped>
+.card {
+  perspective: 800px;
+  margin: 10px;
+}
+
+.card-body {
+  transition: transform 1s;
+  transform-style: preserve-3d;
+
+  .card:hover & {
+    transform: rotateY(-180deg);
+  }
+}
+
+.card-front, .card-back {
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.card-back {
+  transform: rotateY(-180deg);
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+}
+</style>

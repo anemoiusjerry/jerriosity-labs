@@ -6,6 +6,7 @@ export default {
       type: Array,
       required: true,
     },
+    sendSectionNumber: Function,
   },
   data() {
     return {
@@ -19,10 +20,12 @@ export default {
         return;
       }
 
+      const ySens = 5; // change sensitivity
       const delta = event.deltaY;
-      if (delta > 0) {
+      if (delta > ySens) {
         this.nextPage();
-      } else {
+      }
+      else if (delta < -ySens) {
         this.prevPage();
       }
     },
@@ -30,7 +33,7 @@ export default {
     nextPage() {
       if (this.currentPage < this.sections.length - 1) {
         this.scrolling = true;
-        this.currentPage++;
+        this.scrollToPage(this.currentPage + 1)
         setTimeout(() => {
           this.scrolling = false;
         }, 1500);
@@ -39,7 +42,7 @@ export default {
     prevPage() {
       if (this.currentPage > 0) {
         this.scrolling = true;
-        this.currentPage--;
+        this.scrollToPage(this.currentPage - 1)
         setTimeout(() => {
           this.scrolling = false;
         }, 1500);
@@ -47,7 +50,9 @@ export default {
     },
     scrollToPage(index) {
       this.currentPage = index;
+      this.sendSectionNumber(index);
     },
+
   },
   mounted() {
     window.addEventListener('wheel', this.handleScroll);
@@ -90,7 +95,7 @@ export default {
 
 .indicators {
   position: absolute;
-  top: 50%;
+  top: 70%;
   left: 50px;
   transform: translateY(-50%);
   display: flex;
@@ -98,15 +103,26 @@ export default {
 }
 
 .indicators span {
-  width: 10px;
-  height: 10px;
-  background: #fff;
-  border-radius: 50%;
-  margin: 5px 0;
+  width: 11px;
+  height: 11px;
+  border-width: 2px;
+  border-color: #fff;
+  border-top: hidden;
+  border-right: hidden;
+  background-color: transparent;
+  margin: 8px 0;
   cursor: pointer;
+  transform: rotate(45deg);
+  transition: all 0.5s;
 }
 
+.indicators span:hover {
+  border-color: var(--sand);
+}
+
+
 .indicators .active {
-  background: var(--secondary-dark);
+  background: var(--sand);
+  border-width: 0px;
 }
 </style>

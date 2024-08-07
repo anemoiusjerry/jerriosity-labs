@@ -8,8 +8,11 @@ export default {
   theme: {
     extend: {},
     colors: {
-      'primary-dark': '#03001C',
-      'secondary-dark': '#71f9ff'
+      'dusty-gray': '#021526',
+      'sand': '#fdda93',
+      'peach': '#f6b4a2',
+      'salmon': '#fdaf77',
+      'turquoise': '#71c8c1'
     }
   },
   plugins: [
