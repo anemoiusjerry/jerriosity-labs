@@ -38,7 +38,7 @@ export default {
       </div>
 
       <div class="w-6/12 h-auto">
-        <img src="./assets/profile-shot.PNG" alt="my-headshot" class="max-w-full max-h-full object-contain">
+        <img src="./assets/jerry.png" alt="my-headshot" class="max-w-full max-h-full object-contain">
       </div>
 
       <div>
@@ -60,15 +60,12 @@ export default {
   margin-top: 50px;
 }
 
-.flip-enter-active,
-.flip-leave-active {
+.flip-enter-active, .flip-leave-active {
   transition: transform 0.6s;
   transform-origin: top;
 }
 
-.flip-enter,
-.flip-leave-to
-
+.flip-enter, .flip-leave-to
 /* .flip-leave-active in <2.1.8 */
   {
   transform: rotateX(90deg);

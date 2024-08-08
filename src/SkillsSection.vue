@@ -91,11 +91,11 @@ onMounted(() => {
 })
 
 async function flipCards() {
-  const cards = this.$el.querySelectorAll('.card');
-  for (var i = 0; i < cards.length; i++) {
-    cards[i].classList.add('flip');
-    await new Promise(resolve => setTimeout(resolve, 50));
-  }
+  // const cards = this.$el.querySelectorAll('.card');
+  // for (var i = 0; i < cards.length; i++) {
+  //   cards[i].classList.add('flip');
+  //   await new Promise(resolve => setTimeout(resolve, 50));
+  // }
 }
 </script>
 

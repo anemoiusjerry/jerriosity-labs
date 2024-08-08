@@ -6,7 +6,7 @@ import NavHeaderFloat from './components/NavHeaderFloat.vue'
 import HeroSection from "./HeroSection.vue"
 import SkillsSection from "./SkillsSection.vue"
 import ProjectSection from "./ProjectSection.vue"
-import FullPageScroll from './components/FullPageScroll.vue';
+import FullPageScroll from './components/FullPageScroll.vue'
 import ContactSection from './ContactSection.vue'
 
 // number of sections (no other use)
