@@ -33,11 +33,11 @@ export default {
         </div>
 
         <div>
-          <animated-icon iconName="fa-brands fa-github" iconSize="xl" urlLink="https://github.com/anemoiusjerry"
-            class="text-dark-gray" />
-          <animated-icon iconName="fa-brands fa-linkedin" iconSize="xl"
-            urlLink="https://www.linkedin.com/in/anemoiusjerry/" class="text-dark-gray" />
-          <animated-icon iconName="fa-solid fa-envelope" iconSize="xl" class="text-dark-gray"
+          <animated-icon iconName="fa-brands fa-github" iconSize="2xl" urlLink="https://github.com/anemoiusjerry"
+            class="text-dark-gray mx-3" />
+          <animated-icon iconName="fa-brands fa-linkedin" iconSize="2xl"
+            urlLink="https://www.linkedin.com/in/anemoiusjerry/" class="text-dark-gray mx-3" />
+          <animated-icon iconName="fa-solid fa-envelope" iconSize="2xl" class="text-dark-gray mx-3"
             data-tooltip-target="tooltip-email" data-tooltip-placement="bottom" @click="copyEmail"
             @mouseleave="copied = false" />
           <div id="tooltip-email" role="tooltip"

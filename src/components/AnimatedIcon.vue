@@ -15,15 +15,12 @@ export default {
 </script>
 
 <template>
-  <a :href="urlLink" target="_blank" class="icon" style="cursor: pointer;">
+  <a :href="urlLink" target="_blank" style="cursor: pointer;">
     <font-awesome-icon :icon="iconName" :size="iconSize" :class="{ 'fa-beat-fade': hovering }"
       @mouseover="hovering = true" @mouseleave="hovering = false" />
   </a>
 </template>
 
 <style scoped>
-.icon {
-  margin-left: 10px;
-  margin-right: 10px;
-}
+
 </style>

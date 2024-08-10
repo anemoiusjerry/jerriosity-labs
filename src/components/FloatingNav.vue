@@ -5,15 +5,15 @@ import AnimatedIcon from './AnimatedIcon.vue';
 
 <template>
 	<div class="flex justify-center">
-		<nav class="my-5 fixed bg-opacity-75 backdrop-blur-sm z-20 flex p-4 text-off-white bg-light-gray rounded-full ">
+		<nav class="fixed backdrop-blur-sm z-20 my-5 flex p-4 text-dark-gray bg-off-white/80 rounded-full">
 			<h1 class="font-bold mr-2">J-Labs</h1>
 			<dark-mode-toggle-button size="1.5px" />
 			<div class="ml-32">
-				<animated-icon iconName="fa-brands fa-github" iconSize="xl" urlLink="https://github.com/anemoiusjerry" />
+				<animated-icon iconName="fa-brands fa-github" iconSize="xl" urlLink="https://github.com/anemoiusjerry" class="mx-2"/>
 				<animated-icon iconName="fa-brands fa-linkedin" iconSize="xl"
-					urlLink="https://www.linkedin.com/in/anemoiusjerry/" />
+					urlLink="https://www.linkedin.com/in/anemoiusjerry/" class="mx-2"/>
 
-				<animated-icon iconName="fa-solid fa-envelope" iconSize="xl" data-tooltip-target="tooltip-email"
+				<animated-icon iconName="fa-solid fa-envelope" iconSize="xl" class="mx-2" data-tooltip-target="tooltip-email"
 					data-tooltip-placement="bottom" @click="copyEmail" @mouseleave="copied = false" />
 				<div id="tooltip-email" role="tooltip"
 					class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-full opacity-0 tooltip">

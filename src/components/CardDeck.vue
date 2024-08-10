@@ -45,12 +45,12 @@ function scrollRight() {
       <font-awesome-icon icon="fa-solid fa-angle-left" size="2xl" />
     </button>
     
-    <div class="w-full overflow-x-auto snap-x snap-mandatory slide-deck" :style="scrollStyle" ref="scrollRef">
+    <div id='slide-deck' class="w-full overflow-x-auto snap-x snap-mandatory" :style="scrollStyle" ref="scrollRef">
       <div class="flex">
         <skill-card v-for="props in cardProps" v-bind="props" class="snap-center flex-shrink-0" />
       </div>
-    
     </div>
+
     <button v-if="props.cardProps.length >= scrollThreshold" @click="scrollRight">
       <font-awesome-icon icon="fa-solid fa-angle-right"size="2xl" />
     </button>
@@ -58,11 +58,11 @@ function scrollRight() {
 </template>
 
 <style scoped>
-.slide-deck {
+#slide-deck {
   -ms-overflow-style: none;  /* IE, Edge */
   scrollbar-width: none;  /* Firefox */
 }
-.slide-deck::-webkit-scrollbar {
+#slide-deck::-webkit-scrollbar {
   display: none;  /* Chrome, Safari, Opera */
 }
 </style>

@@ -14,17 +14,17 @@ export default {
 
   <div class="card">
     <div class="card-body">
-      <div class="card-front bg-gray-900">
+      <div class="card-front bg-black/50">
         <div class="flex flex-row mb-3">
           <div v-for="path in imgSrcs">
             <img class="w-20 h-20" :src="path" :alt="imgAlt" />
           </div>
         </div>
-        <h1 class="text-sm text-white">{{ title }}</h1>
+        <h1 class="text-sm text-off-white">{{ title }}</h1>
       </div>
 
-      <div class="card-back bg-gray-900">
-        <h1 class="font-bold text-white">{{ exp }}</h1>
+      <div class="card-back bg-black/50">
+        <h1 class="font-bold text-off-white">{{ exp }}</h1>
       </div>
     </div>
   </div>
