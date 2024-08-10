@@ -1,9 +1,8 @@
 :root {
-  --dusty-gray: #0a0a16;
-  --sand: #fdda93;
-  --peach: #f6b4a2;
-  --salmon: #282848;
-  --turquoise: #71c8c1;
+  --off-white: #FAF9F6;
+  --dark-gray: #222222;
+  --light-gray: #3b3b3b;
+  --sky-blue: #73C2FB;
 
   font-family: "Ubuntu", system-ui, sans-serif;
   line-height: 1.5;
@@ -35,8 +34,8 @@ body {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    color: var(--sand);
-    background-color: var(--dusty-gray);
+    color: var(--sky-blue);
+    background-color: var(--dark-gray);
   }
 }
 

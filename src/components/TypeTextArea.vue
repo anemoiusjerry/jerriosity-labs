@@ -26,7 +26,7 @@ export default {
 </script>
 
 <template>
-  <div class="font-light text-white mb-8">
+  <div class="font-light text-white">
     <div class="text-2xl tracking-tight font-mono">
       <span v-for="(char, index) in displayedText" :key="index">{{ char }}</span>
       <span class="border-r-2 border-white animate-blink">&nbsp;</span>
@@ -36,12 +36,9 @@ export default {
 
 <style>
 @keyframes blink {
-
-  0%,
-  100% {
+  0%, 100% {
     opacity: 1;
   }
-
   50% {
     opacity: 0;
   }

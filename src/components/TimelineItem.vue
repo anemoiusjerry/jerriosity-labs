@@ -14,11 +14,17 @@ const props = defineProps({
       <div class="hidden sm:flex w-full bg-gray-200 h-0.5 dark:bg-gray-700"></div>
     </div>
 
-    <div class="mt-3 sm:pe-8" style="width:400px">
-      <h3 class="text-lg font-semibold text-sand">{{ props.projName }}</h3>
-      <time class="block mb-2 text-sm font-normal leading-none text-gray-400">{{ props.projDate }}</time>
-      <p class="text-base font-normal text-gray-500 dark:text-gray-400 w-6/12">{{ props.projBlurb }}</p>
+
+    <div class="mt-3 sm:pe-8 w-96" style=" height: 200px;">
+      <div class="w-48 p-2 rounded-lg hover:border cursor-pointer">
+        <h3 class="text-lg font-semibold text-sand">{{ props.projName }}</h3>
+      <time class="block mb-2 text-sm font-normal leading-none text-white">{{ props.projDate }}</time>
+      <p class="font-normal text-gray-500 block">{{ props.projBlurb }}</p>
+      </div>
+
+
     </div>
+
   </li>
 </template>
 

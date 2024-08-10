@@ -106,7 +106,7 @@ export default {
   width: 11px;
   height: 11px;
   border-width: 2px;
-  border-color: #fff;
+  border-color: var(--off-white);
   border-top: hidden;
   border-right: hidden;
   background-color: transparent;
@@ -117,12 +117,11 @@ export default {
 }
 
 .indicators span:hover {
-  border-color: var(--sand);
+  border-color: var(--sky-blue);
 }
 
-
 .indicators .active {
-  background: var(--sand);
+  background: var(--sky-blue);
   border-width: 0px;
 }
 </style>

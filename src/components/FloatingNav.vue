@@ -5,8 +5,7 @@ import AnimatedIcon from './AnimatedIcon.vue';
 
 <template>
 	<div class="flex justify-center">
-		<nav
-			class="my-5 fixed bg-opacity-75 backdrop-blur-sm z-20 flex p-4 text-white bg-gray-800 rounded-full ">
+		<nav class="my-5 fixed bg-opacity-75 backdrop-blur-sm z-20 flex p-4 text-off-white bg-light-gray rounded-full ">
 			<h1 class="font-bold mr-2">J-Labs</h1>
 			<dark-mode-toggle-button size="1.5px" />
 			<div class="ml-32">

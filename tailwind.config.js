@@ -6,14 +6,14 @@ export default {
     "./node_modules/flowbite/**/*.js"
   ],
   theme: {
-    extend: {},
-    colors: {
-      'dusty-gray': '#021526',
-      'sand': '#fdda93',
-      'peach': '#f6b4a2',
-      'salmon': '#fdaf77',
-      'turquoise': '#71c8c1'
-    }
+    extend: {
+      colors: {
+        'off-white': '#FAF9F6',
+        'dark-gray': '#222222',
+        'light-gray': '#3b3b3b',
+        'sky-blue': '#73C2FB'
+      }
+    },
   },
   plugins: [
     require('flowbite/plugin')

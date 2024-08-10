@@ -101,15 +101,27 @@ async function flipCards() {
 
 <template>
   <section>
-    <div class="mx-auto flex flex-row ms:flex-col justify-center items-center">
-      <div class="w-5/12 mr-12">
-        <h1 class="text-2xl font-bold mb-5">My Skills</h1>
-        <p class="text-white">Looking for an engineer to improve or maintain your software stack? I am familiar with many frameworks and
-          technologies. Hover over the cards to see my experience!
-          <br><br>
-          My main stack is React, .NET, MySQL all hosted in Azure. However, for my side projects
-          I like to test out a variety of frameworks so I can stay update with the latest technologies.
-          <br><br>
+    <div class="mx-auto flex flex-row ms:flex-col justify-evenly items-center">
+      <div class="w-5/12">
+        <h1 class="text-2xl font-bold mb-10">My Skills</h1>
+
+        <div class="flex">
+          <div class="border-t-2 border-l-2 p-5 absolute"></div>
+
+          <p class="text-white p-5">Looking for an engineer to improve or maintain your software stack? I am
+            familiar with many frameworks and
+            technologies. Hover over the cards to see my experience!
+          </p>
+
+          <p class="text-white p-5 text-right">
+            My main stack is React, .NET, MySQL all hosted in Azure. However, for my side projects
+            I like to test out a variety of frameworks so I can stay update with the latest technologies.
+          </p>
+          
+          <div class="self-end"><div class="border-b-2 border-r-2 p-5 absolute"></div></div>
+        </div>
+
+        <p class="text-white p-5 mt-32 bg-gray-900">
           This website for example, was coded entirely from scratch using Vue,
           styled with Tailwind CSS and hosted using Netlify.
         </p>

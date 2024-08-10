@@ -1,7 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import NavHeader from "./components/NavHeader.vue"
-import NavHeaderFloat from './components/NavHeaderFloat.vue'
+import FloatingNav from './components/FloatingNav.vue'
 
 import HeroSection from "./HeroSection.vue"
 import SkillsSection from "./SkillsSection.vue"
@@ -20,7 +20,7 @@ function getSectionNumber(sec) {
 
 <template>
   <nav-header v-if="curSection === 0" class='navbar'/>
-  <nav-header-float v-else class="navbar"/>
+  <floating-nav v-else class="navbar"/>
 
   <full-page-scroll :sections="sections" :sendSectionNumber="getSectionNumber">
       <template #section-0>

@@ -35,8 +35,8 @@ export default {
   --toggleHeight: 16em;
   --toggleWidth: 30em;
   --toggleBtnRadius: 10em;
-  --bgColor--night: #301E67;
-  --mooncolor: #fff;
+  --bgColor--night: var(--dark-gray);
+  --mooncolor: var(--off-white);
 
   /*change size of toggle with font-size*/
   font-size: 30%;
@@ -62,14 +62,14 @@ export default {
   background: var(--bgColor--night);
   box-shadow:
     3em 2.5em 0 0em var(--mooncolor) inset,
-    rgba(255, 255, 255, 0.1) 0em -7em 0 -4.5em,
-    rgba(255, 255, 255, 0.1) 3em 7em 0 -4.5em,
-    rgba(255, 255, 255, 0.1) 2em 13em 0 -4em,
-    rgba(255, 255, 255, 0.1) 6em 2em 0 -4.1em,
-    rgba(255, 255, 255, 0.1) 8em 8em 0 -4.5em,
-    rgba(255, 255, 255, 0.1) 6em 13em 0 -4.5em,
-    rgba(255, 255, 255, 0.1) -4em 7em 0 -4.5em,
-    rgba(255, 255, 255, 0.1) -1em 10em 0 -4.5em;
+    rgba(255, 255, 255, 0.5) 0em -7em 0 -4.5em,
+    rgba(255, 255, 255, 0.5) 3em 7em 0 -4.5em,
+    rgba(255, 255, 255, 0.5) 2em 13em 0 -4em,
+    rgba(255, 255, 255, 0.5) 6em 2em 0 -4.1em,
+    rgba(255, 255, 255, 0.5) 8em 8em 0 -4.5em,
+    rgba(255, 255, 255, 0.5) 6em 13em 0 -4.5em,
+    rgba(255, 255, 255, 0.5) -4em 7em 0 -4.5em,
+    rgba(255, 255, 255, 0.5) -1em 10em 0 -4.5em;
 }
 
 .sun {

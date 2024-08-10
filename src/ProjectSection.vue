@@ -48,7 +48,7 @@ const projects = ref([
 
         <div class="overflow-x-auto p-5" style="width: 1200px;">
           <ol class="items-center flex">
-            <timeline-item v-for="item in projects" :projName="item.title" :projectDate="item.date" :projBlurb="item.summary" />
+            <timeline-item v-for="item in projects" :projName="item.title" :projDate="item.date" :projBlurb="item.summary" />
           </ol>
         </div>
         <font-awesome-icon icon="fa-solid fa-angle-right" class="mt-6" />
