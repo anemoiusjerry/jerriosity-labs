@@ -2,15 +2,16 @@
 import { ref } from 'vue'
 import NavHeader from "./components/NavHeader.vue"
 import FloatingNav from './components/FloatingNav.vue'
+import FullPageScroll from './components/FullPageScroll.vue'
 
 import HeroSection from "./HeroSection.vue"
 import SkillsSection from "./SkillsSection.vue"
 import ProjectSection from "./ProjectSection.vue"
-import FullPageScroll from './components/FullPageScroll.vue'
+import AboutSection from './AboutSection.vue'
 import ContactSection from './ContactSection.vue'
 
 // number of sections (no other use)
-const sections = ref([1, 2, 3, 4])
+const sections = ref([1, 2, 3, 4, 5])
 
 const curSection = ref(0)
 function getSectionNumber(sec) {
@@ -33,6 +34,9 @@ function getSectionNumber(sec) {
         <ProjectSection class="section" />
       </template>
       <template #section-3>
+        <AboutSection class="section" />
+      </template>
+      <template #section-4>
         <ContactSection class="section" />
       </template>
     </full-page-scroll>

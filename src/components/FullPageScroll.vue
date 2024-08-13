@@ -118,6 +118,8 @@ export default {
 
 .indicators span:hover {
   border-color: var(--sky-blue);
+  border-top: solid 2px;
+  border-right: solid 2px;
 }
 
 .indicators .active {

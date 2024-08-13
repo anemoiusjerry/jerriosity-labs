@@ -1,10 +1,17 @@
 <script setup>
-const props = defineProps(['text', 'iconCode'])
+import { reactive, defineProps, computed } from 'vue';
+
+const props = defineProps(['text', 'colour', 'iconCode', 'iconSize', 'iconColour'])
+
+const buttonColour = computed(() => {
+  return { '--button-colour': props.colour }
+})
 </script>
 
 <template>
-  <button class="outline-button">
-    <font-awesome-icon v-if="props.iconCode !== undefined" :icon="props.iconCode" />
+  <button class="outline-button" :style="buttonColour">
+    <font-awesome-icon v-if="props.iconCode !== undefined" :icon="props.iconCode" :size="props.iconSize"
+      :style="{color: props.iconColour}" />
     &nbsp; {{ props.text }}
   </button>
 </template>
@@ -21,7 +28,7 @@ const props = defineProps(['text', 'iconCode'])
 }
 
 .outline-button:hover {
-  border-color: var(--sky-blue);
-  color: var(--sky-blue);
+  border-color: var(--button-colour);
+  color: var(--button-colour);
 }
 </style>
