@@ -9,7 +9,7 @@ const buttonColour = computed(() => {
 </script>
 
 <template>
-  <button class="outline-button" :style="buttonColour">
+  <button class="outline-button text-dark-gray border-dark-gray dark:text-off-white dark:border-off-white" :style="buttonColour">
     <font-awesome-icon v-if="props.iconCode !== undefined" :icon="props.iconCode" :size="props.iconSize"
       :style="{color: props.iconColour}" />
     &nbsp; {{ props.text }}
@@ -23,8 +23,6 @@ const buttonColour = computed(() => {
   padding: 12px;
   border-width: 1px;
   border-radius: 10px;
-  border-color: var(--off-white);
-  color: var(--off-white);
 }
 
 .outline-button:hover {

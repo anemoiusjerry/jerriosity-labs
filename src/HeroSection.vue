@@ -24,7 +24,7 @@ export default {
       <div class="relative flex items-center justify-center">
         <div id="left-content" class="absolute top-24 left-10">
           <h1 class="mb-5 text-6xl font-extrabold w-max" style="font-family: 'Rowdies', sans-serif;">Hi, Im Jerry</h1>
-          <p class="p-5 mt-7 w-9/12 text-off-white bg-light-gray">
+          <p class="p-5 mt-7 w-9/12 text-dark-gray bg-white shadow-lg dark:text-off-white dark:bg-light-gray">
             A Coder that blends engineering best principles with elegant creative solutions.
           </p>
         </div>
@@ -33,7 +33,7 @@ export default {
       <div id="prof-img" class="w-6/12 h-auto">
         <img src="./assets/jerry.png" alt="my-headshot" class="max-w-full max-h-full object-contain">
         <div class="relative">
-          <div class="absolute trimmed-box"></div>
+          <div class="absolute trimmed-box border-light-trim dark:border-sky-blue"></div>
         </div>
       </div>
 
@@ -56,7 +56,6 @@ export default {
   left: -45px;
   border-left-width: 6px;
   border-bottom-width: 6px;
-  border-color: var(--sky-blue);
 }
 
 @media (max-width: 800px) {

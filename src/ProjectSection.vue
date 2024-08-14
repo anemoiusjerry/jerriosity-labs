@@ -40,10 +40,9 @@ const projects = ref([
 <template>
   <section>
     <div class="mx-auto flex flex-col items-center">
-  
       <div class="relative flex self-end">
-        <div class="p-4 absolute border-sky-blue border-t-2 border-r-2"></div>
-        <div class="p-2 absolute bg-sky-blue" style="right: -56px; top: -22px"></div>
+        <div class="p-4 absolute border-t-2 border-r-2 border-light-trim dark:border-sky-blue "></div>
+        <div class="p-2 absolute bg-light-trim dark:bg-sky-blue" style="right: -56px; top: -22px"></div>
       </div>
 
       <h1 class="text-5xl font-bold mb-4 self-end" style="font-family: 'Rowdies', sans-serif;">My Projects</h1>

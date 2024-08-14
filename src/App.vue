@@ -20,8 +20,8 @@ function getSectionNumber(sec) {
 </script>
 
 <template>
-  <nav-header v-if="curSection === 0" class='navbar'/>
-  <floating-nav v-else class="navbar"/>
+  <nav-header v-show="curSection === 0" class='navbar'/>
+  <floating-nav v-show="curSection !== 0" class="navbar"/>
 
   <full-page-scroll :sections="sections" :sendSectionNumber="getSectionNumber">
       <template #section-0>

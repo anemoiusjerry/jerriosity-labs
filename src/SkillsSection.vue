@@ -106,24 +106,24 @@ async function flipCards() {
         <h1 class="text-5xl font-bold mb-16" style="font-family: 'Rowdies', sans-serif;">My Skills</h1>
 
         <div class="flex">
-          <div class="border-t-2 border-l-2 border-sky-blue p-5 absolute"></div>
+          <div class="absolute p-5 border-t-2 border-l-2 border-light-trim dark:border-sky-blue"></div>
 
-          <p class="text-off-white p-6">Looking for an engineer to improve or maintain your software stack? I am
+          <p class="p-6 text-dark-gray dark:text-off-white">Looking for an engineer to improve or maintain your software stack? I am
             familiar with many frameworks and
             technologies. Hover over the cards to see my experience!
           </p>
 
-          <p class="text-off-white p-6 text-right">
+          <p class="p-6 text-right text-dark-gray dark:text-off-white">
             My main stack is React, .NET, MySQL all hosted in Azure. However, for my side projects
             I like to test out a variety of frameworks so I can stay update with the latest technologies.
           </p>
           
           <div class="relative">
-            <div class="absolute border-b-2 border-r-2 border-sky-blue p-5" style="bottom: 0px; right: 0px"></div>
+            <div class="absolute p-5 border-b-2 border-r-2 border-light-trim dark:border-sky-blue" style="bottom: 0px; right: 0px"></div>
           </div>
         </div>
 
-        <p class="text-off-white p-5 bg-light-gray mt-20">
+        <p class="p-5 mt-20 shadow-lg bg-white text-dark-gray dark:bg-light-gray dark:text-off-white">
           This website for example, was coded entirely from scratch using Vue,
           styled with Tailwind CSS and hosted using Netlify.
         </p>

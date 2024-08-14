@@ -3,15 +3,13 @@
   --dark-gray: #222222;
   --light-gray: #3b3b3b;
   --sky-blue: #73C2FB;
+  --light-trim: #FF5F1F;
 
   font-family: "Ubuntu", system-ui, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: var(--bg-dark);
-  
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -23,23 +21,12 @@ body {
   margin: 0;
   min-width: 500px;
   min-height: 100vh;
+
+  color: var(--light-trim);
+  background-color: var(--off-white);
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: var(--lighttxt);
-    background-color: var(--lightbg);
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: var(--sky-blue);
-    background-color: var(--dark-gray);
-  }
-}
-
-body.light {
-  color: var(--lighttxt);
-  background-color: var(--lightbg);
+body.dark {
+  color: var(--sky-blue);
+  background-color: var(--dark-gray);
 }

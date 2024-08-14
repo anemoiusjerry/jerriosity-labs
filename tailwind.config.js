@@ -11,12 +11,14 @@ export default {
         'off-white': '#FAF9F6',
         'dark-gray': '#222222',
         'light-gray': '#3b3b3b',
-        'sky-blue': '#73C2FB'
+        'sky-blue': '#73C2FB',
+        'light-trim': '#FF5F1F'
       }
     },
   },
   plugins: [
     require('flowbite/plugin')
   ],
+  darkMode: 'selector'
 }
 

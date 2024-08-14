@@ -6,16 +6,16 @@ export default {
   },
   data() {
     return {
-      isDark: true
+      isDark: false
     }
   },
   methods: {
     toggleMode() {
       if (this.isDark) {
-        document.body.classList.add('light')
+        document.body.classList.remove('dark')
       }
       else {
-        document.body.classList.remove('light')
+        document.body.classList.add('dark')
       }
       this.isDark = !this.isDark
     }
@@ -78,19 +78,19 @@ export default {
   transform: rotate(0deg);
   width: 7em;
   height: 7em;
-  background: #fff;
-  box-shadow: 3em 3em 0 5em #fff inset,
-    0 -5em 0 -2.7em #fff,
-    3.5em -3.5em 0 -3em #fff,
-    5em 0 0 -2.7em #fff,
-    3.5em 3.5em 0 -3em #fff,
-    0 5em 0 -2.7em #fff,
-    -3.5em 3.5em 0 -3em #fff,
-    -5em 0 0 -2.7em #fff,
-    -3.5em -3.5em 0 -3em #fff;
+  background: var(--light-trim);
+  box-shadow: 3em 3em 0 5em var(--light-trim) inset,
+    0 -5em 0 -2.7em var(--light-trim),
+    3.5em -3.5em 0 -3em var(--light-trim),
+    5em 0 0 -2.7em var(--light-trim),
+    3.5em 3.5em 0 -3em var(--light-trim),
+    0 5em 0 -2.7em var(--light-trim),
+    -3.5em 3.5em 0 -3em var(--light-trim),
+    -5em 0 0 -2.7em var(--light-trim),
+    -3.5em -3.5em 0 -3em var(--light-trim);
 }
 
 .day {
-  background: #FFBF71;
+  background: var(--off-white);
 }
 </style>

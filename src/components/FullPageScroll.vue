@@ -106,7 +106,7 @@ export default {
   width: 11px;
   height: 11px;
   border-width: 2px;
-  border-color: var(--off-white);
+  border-color: var(--dark-gray);
   border-top: hidden;
   border-right: hidden;
   background-color: transparent;
@@ -117,13 +117,23 @@ export default {
 }
 
 .indicators span:hover {
-  border-color: var(--sky-blue);
+  border-color: var(--light-trim);
   border-top: solid 2px;
   border-right: solid 2px;
 }
 
 .indicators .active {
-  background: var(--sky-blue);
+  background: var(--light-trim);
   border-width: 0px;
+}
+
+body.dark .indicators span {
+  border-color: var(--off-white);
+}
+body.dark .indicators span:hover {
+  border-color: var(--sky-blue);
+}
+body.dark .indicators .active {
+  background-color: var(--sky-blue);
 }
 </style>
