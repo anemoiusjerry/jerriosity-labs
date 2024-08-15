@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import SkillCard from './components/SkillCard.vue'
 import CardDeck from './components/CardDeck.vue'
 
-const ICON_PATH = '/src/assets/tech icons'
+const ICON_PATH = '/public/tech icons'
 
 const frontendCards = [
   {
@@ -91,19 +91,19 @@ onMounted(() => {
 })
 
 async function flipCards() {
-  // const cards = this.$el.querySelectorAll('.card');
-  // for (var i = 0; i < cards.length; i++) {
-  //   cards[i].classList.add('flip');
-  //   await new Promise(resolve => setTimeout(resolve, 50));
-  // }
+  const cards = this.$el.querySelectorAll('.card');
+  for (var i = 0; i < cards.length; i++) {
+    cards[i].classList.add('flip');
+    await new Promise(resolve => setTimeout(resolve, 50));
+  }
 }
 </script>
 
 <template>
   <section>
-    <div class="mx-auto flex flex-row ms:flex-col justify-evenly items-center">
-      <div class="w-5/12">
-        <h1 class="text-5xl font-bold mb-16" style="font-family: 'Rowdies', sans-serif;">My Skills</h1>
+    <div class="flex flex-row justify-evenly items-center">
+      <div class="ml-44">
+        <h1 class="text-5xl font-bold mb-16">My Skills</h1>
 
         <div class="flex">
           <div class="absolute p-5 border-t-2 border-l-2 border-light-trim dark:border-sky-blue"></div>
@@ -129,7 +129,7 @@ async function flipCards() {
         </p>
       </div>
 
-      <div class="flex flex-col">
+      <div class="mx-24 flex flex-col">
         <div class="flex flex-col items-center mb-2">
           <h1 class="text-2xl">Frontend</h1>
           <card-deck :cardProps="frontendCards" areaWidth="450px" />

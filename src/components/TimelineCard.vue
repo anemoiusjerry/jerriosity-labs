@@ -14,7 +14,7 @@ const props = defineProps({
     <!-- timeline card -->
     <div class="m-8 flex justify-center" style="height: 300px;">
       <div
-        class="w-52 p-5 rounded-xl border-2 cursor-pointer shadow-lg border-dark-gray bg-white/50 dark:border-off-white dark:bg-black/50">
+        class="w-52 p-5 rounded-xl border-2 cursor-pointer shadow-lg border-dark-gray bg-white/50 dark:border-off-white dark:bg-light-gray/50">
         <h3 class="mb-2 text-lg font-semibold">{{ props.projName }}</h3>
         <p class="font-normal block text-dark-gray dark:text-off-white">{{ props.projBlurb }}</p>
       </div>

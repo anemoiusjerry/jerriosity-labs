@@ -1,6 +1,15 @@
 <script setup>
 import OutlineButton from './components/OutlineButton.vue';
 import TextInput from './components/TextInput.vue';
+import {EMAIL, NUMBER} from './constants';
+
+const WA_GREEN = "#25D366"
+
+function launchWhatsApp() {
+  const message = 'Hello, I would like to chat with you!'; // Replace with your message
+  const url = `https://wa.me/${NUMBER}?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+}
 </script>
 
 <template>
@@ -16,7 +25,7 @@ import TextInput from './components/TextInput.vue';
         <p class="p-5 mb-20 shadow-lg text-dark-gray bg-white dark:bg-light-gray dark:text-off-white">Have you got a
           project, open position or simply want to
           connect?</p>
-        <h1 class="text-4xl font-bold mb-5 text-center" style="font-family: 'Rowdies', sans-serif;">Message Me!</h1>
+        <h1 class="text-4xl font-bold mb-5 text-center">Message Me!</h1>
 
         <div class="grid md:grid-cols-2 md:gap-6">
           <text-input type="text" id="name-input" label="Your Name" />
@@ -27,8 +36,8 @@ import TextInput from './components/TextInput.vue';
 
         <div class="flex justify-center mt-5">
           <outline-button text="Send" iconCode="fa-solid fa-paper-plane" class="mr-2" />
-          <outline-button text="Also on WhatsApp" iconCode="fa-brands fa-whatsapp" iconSize="lg" iconColour="#25D366"
-            colour="#25D366" />
+          <outline-button text="Also on WhatsApp" iconCode="fa-brands fa-whatsapp" iconSize="lg" 
+          :iconColour="WA_GREEN" :colour="WA_GREEN" @click="launchWhatsApp"/>
         </div>
 
         <div class="relative">

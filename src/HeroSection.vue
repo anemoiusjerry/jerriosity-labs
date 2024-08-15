@@ -20,28 +20,30 @@ export default {
 
 <template>
   <section>
-    <div id="hero-section" class="max-w-screen-xl px-4 py-8 mx-auto flex flex-row justify-between">
-      <div class="relative flex items-center justify-center">
-        <div id="left-content" class="absolute top-24 left-10">
-          <h1 class="mb-5 text-6xl font-extrabold w-max" style="font-family: 'Rowdies', sans-serif;">Hi, Im Jerry</h1>
-          <p class="p-5 mt-7 w-9/12 text-dark-gray bg-white shadow-lg dark:text-off-white dark:bg-light-gray">
+    <div id="hero-section" class="px-5 py-8 flex flex-row justify-between">
+      <div class="relative flex items-start justify-end">
+        <div class="absolute left-32">
+          <h1 class="mb-5 w-max font-extrabold" style="font-size: 4vw;">Hi, Im Jerry</h1>
+          <p class="p-5 mt-7 w-10/12 text-dark-gray bg-white shadow-lg dark:text-off-white dark:bg-light-gray"
+            style="font-size: 1.1vw;">
             A Coder that blends engineering best principles with elegant creative solutions.
           </p>
         </div>
       </div>
 
-      <div id="prof-img" class="w-6/12 h-auto">
-        <img src="./assets/jerry.png" alt="my-headshot" class="max-w-full max-h-full object-contain">
+      <!-- relative class on image makes it appear over the words - looks cool! -->
+      <div id="prof-img" class="relative" style="max-width: 40vw;">
+        <img src="/public/jerry.png" alt="my-headshot" class="w-auto h-auto object-scale-down">
         <div class="relative">
           <div class="absolute trimmed-box border-light-trim dark:border-sky-blue"></div>
         </div>
       </div>
 
-      <div class="relative flex items-center justify-center">
-        <div class="absolute right-0 bottom-40">
-          <type-text-area text="< Fullstack Developer />" class="w-96 mb-9" />
-          <a href="/src/assets/resume.pdf" download="Jerry's CV.pdf">
-            <outline-button text="Download my CV" iconCode="fa-solid fa-file-arrow-down" />
+      <div class="relative flex items-center justify-end mt-36" style="left:-3vw">
+        <div class="absolute" style="min-width: 24vw;">
+          <type-text-area text="< Fullstack Developer />" class="mb-5" style="font-size: 1.6vw;"/>
+          <a href="/public/resume.pdf" download="Jerry's CV.pdf">
+            <outline-button text="Download my CV" iconCode="fa-solid fa-file-arrow-down" style="font-size: 1.1vw;"/>
           </a>
         </div>
       </div>
@@ -51,38 +53,10 @@ export default {
 
 <style scoped>
 .trimmed-box {
-  padding: 35px;
-  bottom: -45px;
-  left: -45px;
-  border-left-width: 6px;
-  border-bottom-width: 6px;
-}
-
-@media (max-width: 800px) {
-  #hero-section {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .trimmed-box {
-    padding: 20px;
-    bottom: -20px;
-    left: -20px;
-    border-left-width: 4px;
-    border-bottom-width: 4px;
-  }
-
-  #prof-img {
-    max-width: 30%;
-  }
-
-  #left-content {
-    top: 350px;
-    left: -195px;
-  }
-
-  h1 {
-    font-size:xx-large;
-  }
+  padding: 3vw;
+  bottom: -3vw;
+  left: -3vw;
+  border-left-width: 0.6vw;
+  border-bottom-width: 0.6vw;
 }
 </style>

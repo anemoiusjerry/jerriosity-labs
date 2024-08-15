@@ -52,7 +52,6 @@ export default {
       this.currentPage = index;
       this.sendSectionNumber(index);
     },
-
   },
   mounted() {
     window.addEventListener('wheel', this.handleScroll);
@@ -85,12 +84,11 @@ export default {
 }
 
 .page {
-  height: 100vh;
   width: 100%;
+  height: 100vh;
   position: absolute;
-  top: 0;
-  left: 0;
   transition: transform 1s ease;
+  margin-top: 4em;
 }
 
 .indicators {

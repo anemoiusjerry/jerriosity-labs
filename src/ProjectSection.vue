@@ -6,8 +6,7 @@ const projects = ref([
   {
     title: 'Streamwise D.I.',
     date: 'Dec 2019',
-    summary: 'First professional role as a Systems Engineer at an IIoT startup.',
-    imgSrc: '/src/assets/streamwisedi_cover.jpeg'
+    summary: 'First professional role as a Systems Engineer at an IIoT startup.'
   },
   {
     title: 'Restored To Eden',
@@ -39,14 +38,15 @@ const projects = ref([
 
 <template>
   <section>
-    <div class="mx-auto flex flex-col items-center">
-      <div class="relative flex self-end">
-        <div class="p-4 absolute border-t-2 border-r-2 border-light-trim dark:border-sky-blue "></div>
-        <div class="p-2 absolute bg-light-trim dark:bg-sky-blue" style="right: -56px; top: -22px"></div>
+    <div class="flex flex-col items-center p-5 mt-10">
+      <div class="relative flex">
+        <div >
+          <div class="p-4 absolute border-t-2 border-r-2 border-light-trim dark:border-sky-blue "></div>
+          <div class="p-2 absolute bg-light-trim dark:bg-sky-blue" style="right: -56px; top: -22px"></div>
+        </div>
+        <h1 class="text-5xl font-bold my-4">My Projects</h1>
       </div>
 
-      <h1 class="text-5xl font-bold mb-4 self-end" style="font-family: 'Rowdies', sans-serif;">My Projects</h1>
-      
       <div id="timeline" class="overflow-x-auto snap-x snap-mandatory" style="width: 1090px;">
         <ol class="items-center flex p-5">
           <timeline-card v-for="(item, index) in projects" :projName="item.title" :projDate="item.date"
@@ -60,10 +60,14 @@ const projects = ref([
 
 <style scoped>
 #timeline {
-  -ms-overflow-style: none;  /* IE, Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE, Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
+
 #timeline::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari, Opera */
+  display: none;
+  /* Chrome, Safari, Opera */
 }
 </style>

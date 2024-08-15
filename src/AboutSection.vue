@@ -6,7 +6,7 @@
     <div class="flex justify-between w-full mx-36" style="height:75%">
       <div>
         <div class="flex w-max">
-          <h1 class="text-4xl mr-5 font-bold self-end" style="font-family: 'Rowdies', sans-serif;">About Me</h1>
+          <h1 class="text-4xl mr-5 font-bold self-end">About Me</h1>
           <h2 class="p-4 text-lg tracking-tight font-medium shadow-lg text-dark-gray bg-white dark:text-off-white dark:bg-light-gray">
             Chinese born, New Zealand raised,<br>Australian trained, Serbia based!
           </h2>
@@ -29,15 +29,15 @@
       <div class="flex items-end self-end">
         <a href="https://www.instagram.com/jerriosity/" target="_blank"
           class="p-5 mr-5 shadow-lg transform transition duration-300 hover:scale-105 bg-white dark:bg-light-gray">
-          <img src="./assets/instagram-pic.jpg" class="max-w-52 mb-3" />
+          <img src="/public/instagram-pic.jpg" class="max-w-52 mb-3" />
           <h2 class="flex justify-center text-dark-gray dark:text-off-white ">
             Check out my travels &nbsp
-            <img src="./assets/instagram-icon.svg" width="25px" />
+            <img src="/public/instagram-icon.svg" width="25px" />
           </h2>
         </a>
 
         <div class="text-end">
-          <h1 class="text-4xl mb-3 font-bold" style="font-family: 'Rowdies', sans-serif;">Hobbies</h1>
+          <h1 class="text-4xl mb-3 font-bold">Hobbies</h1>
           <p class="mt-4 text-justify text-dark-gray dark:text-off-white " style="max-width: 500px;">
             Programmers are seen as boring, but I'm here to prove otherwise! Outside work, I live a rather creative
             life. From a young age I loved to draw, mostly pencil sketches. In University I acted in a musical

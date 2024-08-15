@@ -27,9 +27,9 @@ export default {
 
 <template>
   <div class="font-light text-dark-gray dark:text-off-white">
-    <div class="text-2xl tracking-tight font-mono">
+    <div class="tracking-tight font-mono">
       <span v-for="(char, index) in displayedText" :key="index">{{ char }}</span>
-      <span class="border-r-2 border-white animate-blink">&nbsp;</span>
+      <span class="border-b-2 border-dark-gray dark:border-off-white animate-blink">&nbsp;</span>
     </div>
   </div>
 </template>

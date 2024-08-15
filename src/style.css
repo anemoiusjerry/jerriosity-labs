@@ -30,3 +30,7 @@ body.dark {
   color: var(--sky-blue);
   background-color: var(--dark-gray);
 }
+
+h1 {
+  font-family: "Rowdies", system-ui, sans-serif;
+}

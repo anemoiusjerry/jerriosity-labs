@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue'
 import NavHeader from "./components/NavHeader.vue"
-import FloatingNav from './components/FloatingNav.vue'
 import FullPageScroll from './components/FullPageScroll.vue'
 
 import HeroSection from "./HeroSection.vue"
@@ -12,16 +11,16 @@ import ContactSection from './ContactSection.vue'
 
 // number of sections (no other use)
 const sections = ref([1, 2, 3, 4, 5])
-
 const curSection = ref(0)
-function getSectionNumber(sec) {
-  curSection.value = sec
+
+function getSectionNumber(num) {
+  console.log(num)
+  curSection.value = num
 }
 </script>
 
 <template>
-  <nav-header v-show="curSection === 0" class='navbar'/>
-  <floating-nav v-show="curSection !== 0" class="navbar"/>
+  <nav-header :float="curSection !== 0" />
 
   <full-page-scroll :sections="sections" :sendSectionNumber="getSectionNumber">
       <template #section-0>
@@ -44,12 +43,8 @@ function getSectionNumber(sec) {
 
 <style>
 .section {
-  display: flex;
-  align-items: center;
+  width: 100vw;
   height: 100vh;
-}
-
-.navbar {
-  transition: all 1s ease
+  overflow: hidden;
 }
 </style>
