@@ -39,12 +39,12 @@ const projects = ref([
 <template>
   <section>
     <div class="flex flex-col items-center p-5 mt-10">
-      <div class="relative flex">
-        <div >
-          <div class="p-4 absolute border-t-2 border-r-2 border-light-trim dark:border-sky-blue "></div>
-          <div class="p-2 absolute bg-light-trim dark:bg-sky-blue" style="right: -56px; top: -22px"></div>
-        </div>
+      <div class="relative flex items-end justify-end" style="width: 1090px;">
         <h1 class="text-5xl font-bold my-4">My Projects</h1>
+        <div class="relative justify-self-end self-start">
+          <div class="p-2 absolute bg-light-trim dark:bg-sky-blue" style="margin-left:38px; margin-top: -20px;"></div>
+          <div class="p-4 absolute border-t-2 border-r-2 border-light-trim dark:border-sky-blue"></div>
+        </div>
       </div>
 
       <div id="timeline" class="overflow-x-auto snap-x snap-mandatory" style="width: 1090px;">
