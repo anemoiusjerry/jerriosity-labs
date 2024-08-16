@@ -26,7 +26,7 @@ export default {
           <h1 class="mb-5 w-max font-extrabold" style="font-size: 4vw;">Hi, Im Jerry</h1>
           <p class="p-5 mt-7 w-10/12 text-dark-gray bg-white shadow-lg dark:text-off-white dark:bg-light-gray"
             style="font-size: 1.1vw;">
-            A Coder that blends engineering best principles with elegant creative solutions.
+            Seemlessly blending engineering best principles with elegant creative design.
           </p>
         </div>
       </div>

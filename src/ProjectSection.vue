@@ -31,7 +31,7 @@ const projects = ref([
   {
     title: 'This website!',
     date: 'Aug 2024',
-    summary: 'Completely designed and coded from scratch by me!'
+    summary: 'Website to showcase my skills and experience. Yes I also designed the logo too!'
   }
 ])
 </script>
