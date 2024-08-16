@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, reactive, ref } from 'vue'
+import { reactive, ref } from 'vue'
 import { EMAIL, NUMBER } from '../constants'
 import AnimatedIcon from './AnimatedIcon.vue'
 import DarkModeToggleButton from './DarkModeToggleButton.vue'
@@ -17,7 +17,7 @@ const contactNumber = ref(NUMBER)
 
       <div class="flex items-center justify-between">
         <div class="flex items-center w-max">
-          <img src="/public/jlabs-logo.svg" :class="float ? 'ml-3 mr-1.5 w-9' : 'mx-2.5 w-12'" />
+          <img src="/jlabs-logo.svg" :class="float ? 'ml-3 mr-1.5 w-9' : 'mx-2.5 w-12'" />
           <h1 class="tracking-tight text-off-white dark:text-dark-gray"
             :class="float ? 'mr-3 font-bold text-lg' : 'mr-6 text-2xl'">{{ float ? 'J-Labs' : 'Jerriosity Labs' }}</h1>
           <dark-mode-toggle-button size="1.5px" />

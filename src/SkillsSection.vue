@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import SkillCard from './components/SkillCard.vue'
 import CardDeck from './components/CardDeck.vue'
 
-const ICON_PATH = '/public/tech icons'
+const ICON_PATH = '/brandlogos'
 
 const frontendCards = [
   {

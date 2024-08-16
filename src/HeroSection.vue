@@ -33,7 +33,7 @@ export default {
 
       <!-- relative class on image makes it appear over the words - looks cool! -->
       <div id="prof-img" class="relative" style="max-width: 40vw;">
-        <img src="/public/jerry.png" alt="my-headshot" class="w-auto h-auto object-scale-down">
+        <img src="/jerry.png" alt="my-headshot" class="w-auto h-auto object-scale-down">
         <div class="relative">
           <div class="absolute trimmed-box border-light-trim dark:border-sky-blue"></div>
         </div>
@@ -42,7 +42,7 @@ export default {
       <div class="relative flex items-center justify-end mt-36" style="left:-3vw">
         <div class="absolute" style="min-width: 24vw;">
           <type-text-area text="< Fullstack Developer />" class="mb-5" style="font-size: 1.6vw;"/>
-          <a href="/public/resume.pdf" download="Jerry's CV.pdf">
+          <a href="/resume.pdf" download="Jerry's CV.pdf">
             <outline-button text="Download my CV" iconCode="fa-solid fa-file-arrow-down" style="font-size: 1.1vw;"/>
           </a>
         </div>

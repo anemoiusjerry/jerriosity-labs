@@ -45,10 +45,10 @@
 
           <a href="https://www.instagram.com/jerriosity/" target="_blank"
             class="p-5 mr-5 shadow-lg transform transition duration-300 hover:scale-105 bg-white dark:bg-light-gray">
-            <img src="/public/instagram-pic.jpg" class="max-w-52 mb-3" />
+            <img src="/instagram-pic.jpg" class="max-w-52 mb-3" />
             <h2 class="flex justify-center text-dark-gray dark:text-off-white ">
               Check out my travels &nbsp
-              <img src="/public/instagram-icon.svg" width="25px" />
+              <img src="/instagram-icon.svg" width="25px" />
             </h2>
           </a>
         </div>

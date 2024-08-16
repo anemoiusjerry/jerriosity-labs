@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, defineProps, computed } from 'vue';
+import { reactive, computed } from 'vue';
 
 const props = defineProps(['text', 'colour', 'iconCode', 'iconSize', 'iconColour'])
 
