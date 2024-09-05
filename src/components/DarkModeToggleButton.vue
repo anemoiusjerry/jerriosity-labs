@@ -9,13 +9,28 @@ export default {
       isDark: false
     }
   },
+  created() {
+    // detect user prefered theme
+    const lastTheme = localStorage.getItem('theme')
+    // local storage only meant to be read by browser
+    if (lastTheme) {
+      this.isDark = lastTheme === 'dark'
+    }
+    // check system setting
+    else {
+      this.isDark = window.matchMedia('prefers-color-scheme:dark').matches
+    }
+    this.toggleMode()
+  },
   methods: {
     toggleMode() {
       if (this.isDark) {
         document.body.classList.remove('dark')
+        localStorage.setItem('theme', 'light')
       }
       else {
         document.body.classList.add('dark')
+        localStorage.setItem('theme', 'dark')
       }
       this.isDark = !this.isDark
     }
@@ -30,22 +45,25 @@ export default {
   </div>
 </template>
 
-<style scoped>
-.toggle-button {
-  --toggleHeight: 16em;
-  --toggleWidth: 30em;
-  --toggleBtnRadius: 10em;
-  --bgColor--night: var(--dark-gray);
-  --mooncolor: var(--off-white);
+<style lang="scss" scoped>
+$toggleHeight: 16em;
+$toggleWidth: 30em;
+$toggleBtnRadius: 10em;
+$bgNight: $darkGray;
+$moonColor: $offWhite;
+$starColor: $offWhite;
+$sunColor: $bloodOrange;
 
-  /*change size of toggle with font-size*/
+.toggle-button {
+
+  /* change size of toggle with font-size */
   font-size: 30%;
   position: relative;
-  height: var(--toggleHeight);
-  width: var(--toggleWidth);
-  border-radius: var(--toggleHeight);
+  height: $toggleHeight;
+  width: $toggleWidth;
+  border-radius: $toggleHeight;
   transition: all 500ms ease-in-out;
-  background: var(--bgColor--night);
+  background: $bgNight;
 }
 
 .moon {
@@ -57,19 +75,19 @@ export default {
   top: 3em;
   left: 3em;
   transform: rotate(-75deg);
-  width: var(--toggleBtnRadius);
-  height: var(--toggleBtnRadius);
-  background: var(--bgColor--night);
+  width: $toggleBtnRadius;
+  height: $toggleBtnRadius;
+  background: $bgNight;
   box-shadow:
-    3em 2.5em 0 0em var(--mooncolor) inset,
-    rgba(255, 255, 255, 0.5) 0em -7em 0 -4.5em,
-    rgba(255, 255, 255, 0.5) 3em 7em 0 -4.5em,
-    rgba(255, 255, 255, 0.5) 2em 13em 0 -4em,
-    rgba(255, 255, 255, 0.5) 6em 2em 0 -4.1em,
-    rgba(255, 255, 255, 0.5) 8em 8em 0 -4.5em,
-    rgba(255, 255, 255, 0.5) 6em 13em 0 -4.5em,
-    rgba(255, 255, 255, 0.5) -4em 7em 0 -4.5em,
-    rgba(255, 255, 255, 0.5) -1em 10em 0 -4.5em;
+    3em 2.5em 0 0em $moonColor inset,
+    $starColor 0em -7em 0 -4.5em,
+    $starColor 3em 7em 0 -4.5em,
+    $starColor 2em 13em 0 -4em,
+    $starColor 6em 2em 0 -4.1em,
+    $starColor 8em 8em 0 -4.5em,
+    $starColor 6em 13em 0 -4.5em,
+    $starColor -4em 7em 0 -4.5em,
+    $starColor -1em 10em 0 -4.5em;
 }
 
 .sun {
@@ -78,19 +96,19 @@ export default {
   transform: rotate(0deg);
   width: 7em;
   height: 7em;
-  background: var(--light-trim);
-  box-shadow: 3em 3em 0 5em var(--light-trim) inset,
-    0 -5em 0 -2.7em var(--light-trim),
-    3.5em -3.5em 0 -3em var(--light-trim),
-    5em 0 0 -2.7em var(--light-trim),
-    3.5em 3.5em 0 -3em var(--light-trim),
-    0 5em 0 -2.7em var(--light-trim),
-    -3.5em 3.5em 0 -3em var(--light-trim),
-    -5em 0 0 -2.7em var(--light-trim),
-    -3.5em -3.5em 0 -3em var(--light-trim);
+  background: $sunColor;
+  box-shadow: 3em 3em 0 5em $sunColor inset,
+    0 -5em 0 -2.7em $sunColor,
+    3.5em -3.5em 0 -3em $sunColor,
+    5em 0 0 -2.7em $sunColor,
+    3.5em 3.5em 0 -3em $sunColor,
+    0 5em 0 -2.7em $sunColor,
+    -3.5em 3.5em 0 -3em $sunColor,
+    -5em 0 0 -2.7em $sunColor,
+    -3.5em -3.5em 0 -3em $sunColor;
 }
 
 .day {
-  background: var(--off-white);
+  background: $offWhite;
 }
 </style>

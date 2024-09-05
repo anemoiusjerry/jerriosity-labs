@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import TimelineCard from './components/TimelineCard.vue';
+import TimelineCard from '../../components/TimelineCard.vue';
 
 const projects = ref([
   {
@@ -38,16 +38,16 @@ const projects = ref([
 
 <template>
   <section>
-    <div class="flex flex-col items-center p-5 mt-10">
-      <div class="relative flex items-end justify-end" style="width: 1090px;">
-        <h1 class="text-5xl font-bold my-4">My Projects</h1>
-        <div class="relative justify-self-end self-start">
-          <div class="p-2 absolute bg-light-trim dark:bg-sky-blue" style="margin-left:38px; margin-top: -20px;"></div>
-          <div class="p-4 absolute border-t-2 border-r-2 border-light-trim dark:border-sky-blue"></div>
+    <div class="mt-16" style="width: 80vw;">
+      <div class="flex justify-end">
+        <h3 class="font-bold my-4">My Projects</h3>
+        <div class="relative ">
+          <div class="p-4 absolute border-t-2 border-r-2 border-blood-orange dark:border-sky-blue" style="margin-left:-7px; margin-top: 20px;"></div>
+          <div class="p-2 absolute bg-blood-orange dark:bg-sky-blue" style="margin-left:30px;"></div>
         </div>
       </div>
 
-      <div id="timeline" class="overflow-x-auto snap-x snap-mandatory" style="width: 1090px;">
+      <div id="timeline" class="overflow-x-auto snap-x snap-mandatory">
         <ol class="items-center flex p-5">
           <timeline-card v-for="(item, index) in projects" :projName="item.title" :projDate="item.date"
             :projBlurb="item.summary" :hideLineLeft="index === 0" :hideLineRight="index === projects.length - 1"
@@ -58,7 +58,7 @@ const projects = ref([
   </section>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 #timeline {
   -ms-overflow-style: none;
   /* IE, Edge */

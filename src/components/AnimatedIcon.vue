@@ -25,10 +25,10 @@ function copyMsg() {
 
   <!-- tooltip message to show on hover and copied on click -->
   <div :id="tooltipId" role="tooltip"
-    class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-off-white dark:text-dark-gray bg-light-gray dark:bg-off-white transition-opacity duration-300 rounded-full opacity-0 tooltip">
+    class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-off-white bg-light-gray transition-opacity duration-300 rounded-full opacity-0 tooltip">
     {{ tooltipMsg }}
 
-    <font-awesome-icon v-if="copied" icon="fa-solid fa-check" class="ml-1 text-light-trim dark:text-sky-blue"/>
+    <font-awesome-icon v-if="copied" icon="fa-solid fa-check" class="ml-1 text-blood-orange dark:text-sky-blue"/>
     <font-awesome-icon v-else icon="fa-regular fa-copy" class="ml-1"/>
     <div class="tooltip-arrow" data-popper-arrow></div>
   </div>

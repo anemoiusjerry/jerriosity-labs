@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     handleScroll(event) {
-      if (this.scrolling) {
+      if (this.scrolling || window.innerWidth < 640) {
         return;
       }
 
@@ -65,7 +65,7 @@ export default {
 
 <template>
   <div class="full-page-scroll">
-    <div class="page" v-for="(section, index) in sections" :key="index"
+    <div class="page border-b-dark-gray dark:border-b-off-white" v-for="(section, index) in sections" :key="index"
       :style="{ transform: `translateY(${(index - currentPage) * 100}%)` }">
       <slot :name="'section-' + index"></slot>
     </div>
@@ -76,62 +76,82 @@ export default {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .full-page-scroll {
   height: 100vh;
+  overflow-x: hidden;
   overflow-y: hidden;
   position: relative;
+
+  @include breakpoint-down(small) {
+    overflow-y: auto;
+  }
 }
 
 .page {
-  width: 100%;
   height: 100vh;
   position: absolute;
+  margin-left: 10%;
+  margin-right: 7%;
+  margin-top: 7%;
   transition: transform 1s ease;
-  margin-top: 4em;
+
+  @include breakpoint-down(small) {
+    height: max-content;
+    position: relative;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-bottom: 10%;
+    transform: none !important;
+    border-bottom-width: 1px;
+  }
 }
 
 .indicators {
   position: absolute;
   top: 70%;
-  left: 50px;
+  left: 3%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
+  gap: 1.2em;
+
+  @include breakpoint-down(small) {
+    display: none;
+  }
 }
 
 .indicators span {
   width: 11px;
   height: 11px;
   border-width: 2px;
-  border-color: var(--dark-gray);
+  border-color: $darkGray;
   border-top: hidden;
   border-right: hidden;
   background-color: transparent;
-  margin: 8px 0;
   cursor: pointer;
   transform: rotate(45deg);
   transition: all 0.5s;
 }
 
 .indicators span:hover {
-  border-color: var(--light-trim);
+  border-color: $bloodOrange;
   border-top: solid 2px;
   border-right: solid 2px;
 }
 
 .indicators .active {
-  background: var(--light-trim);
+  background: $bloodOrange;
   border-width: 0px;
 }
 
 body.dark .indicators span {
-  border-color: var(--off-white);
+  border-color: $offWhite;
 }
 body.dark .indicators span:hover {
-  border-color: var(--sky-blue);
+  border-color: $skyBlue;
 }
 body.dark .indicators .active {
-  background-color: var(--sky-blue);
+  background-color: $skyBlue;
 }
 </style>

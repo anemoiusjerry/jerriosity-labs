@@ -1,7 +1,7 @@
 <script setup>
-import OutlineButton from './components/OutlineButton.vue';
-import TextInput from './components/TextInput.vue';
-import {EMAIL, NUMBER} from './constants';
+import OutlineButton from '../../components/OutlineButton.vue';
+import TextInput from '../../components/TextInput.vue';
+import {EMAIL, NUMBER} from '../../constants';
 
 const WA_GREEN = "#25D366"
 
@@ -16,9 +16,9 @@ function launchWhatsApp() {
   <section>
     <div class="mx-auto mb-10">
       <div class="relative">
-        <div class="absolute p-4 border-t-2 border-l-2 border-light-trim dark:border-sky-blue"
+        <div class="absolute p-4 border-t-2 border-l-2 border-blood-orange dark:border-sky-blue"
           style="left:-20px; top:-20px"></div>
-        <div class="absolute p-1 bg-light-trim dark:bg-sky-blue" style="left:-32px; top:-32px"></div>
+        <div class="absolute p-1 bg-blood-orange dark:bg-sky-blue" style="left:-32px; top:-32px"></div>
       </div>
 
       <form class="flex flex-col">
@@ -41,10 +41,10 @@ function launchWhatsApp() {
         </div>
 
         <div class="relative">
-          <div class="absolute bg-light-trim dark:bg-sky-blue" style="padding: 18px; right:-220px; bottom:80px;"></div>
-          <div class="absolute p-4 border-2 border-light-trim dark:border-sky-blue" style="right:-220px; bottom:35px">
+          <div class="absolute bg-blood-orange dark:bg-sky-blue" style="padding: 18px; right:-220px; bottom:80px;"></div>
+          <div class="absolute p-4 border-2 border-blood-orange dark:border-sky-blue" style="right:-220px; bottom:35px">
           </div>
-          <div class="absolute p-4 border-2 border-light-trim dark:border-sky-blue" style="right:-220px; bottom:-10px">
+          <div class="absolute p-4 border-2 border-blood-orange dark:border-sky-blue" style="right:-220px; bottom:-10px">
           </div>
         </div>
       </form>
@@ -56,7 +56,7 @@ function launchWhatsApp() {
 <style scoped>
 .message-box {
   color: var(--dark-gray);
-  caret-color: var(--light-trim);
+  caret-color: var(--blood-orange);
   border-color: var(--dark-gray);
   background-color: transparent;
   border-width: 0px;
@@ -67,7 +67,7 @@ function launchWhatsApp() {
 .message-box:focus {
   outline: none;
   box-shadow: none;
-  border-color: var(--light-trim);
+  border-color: var(--blood-orange);
 }
 
 body.dark .message-box {

@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import './style.css'
 import './index.css'
+import './scss/styles.scss' // ensure this is last
 
 import 'flowbite'
 import { library } from '@fortawesome/fontawesome-svg-core';

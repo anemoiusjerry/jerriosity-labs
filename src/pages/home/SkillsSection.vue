@@ -1,7 +1,7 @@
 <script setup>
-import { ref, onMounted } from 'vue'
-import SkillCard from './components/SkillCard.vue'
-import CardDeck from './components/CardDeck.vue'
+import { onMounted } from 'vue'
+import CardDeck from '../../components/CardDeck.vue'
+import StickyNote from '../../components/StickyNote.vue';
 
 const ICON_PATH = '/brandlogos'
 
@@ -101,14 +101,16 @@ async function flipCards() {
 
 <template>
   <section>
-    <div class="flex flex-row justify-evenly items-center">
-      <div class="ml-44">
-        <h1 class="text-5xl font-bold mb-16">My Skills</h1>
-
-        <div class="flex">
-          <div class="absolute p-5 border-t-2 border-l-2 border-light-trim dark:border-sky-blue"></div>
-
-          <p class="p-6 text-dark-gray dark:text-off-white">Looking for an engineer to develop or maintain your software
+    <div id="skills-section" class="flex">
+      <div id="left-content">
+        <h3 class="font-bold mb-16">My Skills</h3>
+        <div id="left-text" class="flex mb-20">
+          <div class="relative">
+            <div class="top-0 left-0 absolute p-5 border-t-2 border-l-2 border-blood-orange dark:border-sky-blue">
+            </div>
+          </div>
+          <p class="p-6 text-dark-gray dark:text-off-white">Looking for an engineer to develop or maintain your
+            software
             services? I am familiar with many frameworks and technologies. Hover over the cards to see my experience!
           </p>
 
@@ -116,32 +118,29 @@ async function flipCards() {
             My main stack is React, .NET, MySQL all hosted in Azure. However, for my side projects
             I like to test out a variety of frameworks so I can stay update with the latest technologies.
           </p>
-
           <div class="relative">
-            <div class="absolute p-5 border-b-2 border-r-2 border-light-trim dark:border-sky-blue"
+            <div class="absolute p-5 border-b-2 border-r-2 border-blood-orange dark:border-sky-blue"
               style="bottom: 0px; right: 0px"></div>
           </div>
         </div>
 
-        <p class="p-5 mt-20 shadow-lg bg-white text-dark-gray dark:bg-light-gray dark:text-off-white">
-          This website for example, was designed and coded entirely from scratch using Vue,
-          styled with Tailwind CSS and hosted using Cloudflare.
-        </p>
+        <sticky-note text="This website for example, was designed and coded entirely from scratch using Vue,
+          styled with Tailwind CSS and hosted using Cloudflare."/>
       </div>
 
-      <div class="mx-24 flex flex-col">
+      <div class="flex flex-col">
         <div class="flex flex-col items-center mb-2">
-          <h1 class="text-2xl">Frontend</h1>
+          <span class="text-2xl">Frontend</span>
           <card-deck :cardProps="frontendCards" areaWidth="450px" />
         </div>
 
         <div class="flex flex-col items-center mb-2">
-          <h1 class="text-2xl">Backend</h1>
+          <span class="text-2xl">Backend</span>
           <card-deck :cardProps="backendCards" areaWidth="450px" />
         </div>
 
         <div class="flex flex-col items-center">
-          <h1 class="text-2xl">Other</h1>
+          <span class="text-2xl">Other</span>
           <card-deck :cardProps="otherCards" areaWidth="450px" />
         </div>
 
@@ -150,9 +149,41 @@ async function flipCards() {
   </section>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .card.flip {
   transform: rotateY(360deg);
   transition: transform 1.5s;
+}
+
+h3 {
+  @include breakpoint-down(small) {
+    text-align: center;
+  }
+}
+
+#skills-section {
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  @include breakpoint-down(small) {
+    margin-left: 5%;
+    margin-right: 5%;
+    flex-direction: column;
+  }
+}
+
+#left-content {
+  margin-right: 10%;
+  @include breakpoint-down(small) {
+    margin-bottom: 3em;
+    margin-right: 0;
+  }
+}
+
+#left-text {
+  @include breakpoint-down(small) {
+    flex-direction: column;
+  }
 }
 </style>

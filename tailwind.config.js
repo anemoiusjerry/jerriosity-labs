@@ -12,7 +12,7 @@ export default {
         'dark-gray': '#222222',
         'light-gray': '#3b3b3b',
         'sky-blue': '#73C2FB',
-        'light-trim': '#FF5F1F'
+        'blood-orange': '#FF5F1F'
       }
     },
   },
