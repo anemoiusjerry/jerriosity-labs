@@ -10,7 +10,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <li class="relative">
+  <li>
     <!-- timeline card -->
     <div class="m-8 flex justify-center" style="height: 300px;">
       <div

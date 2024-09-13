@@ -1,5 +1,5 @@
 <script setup>
-import { reactive, ref } from 'vue'
+import { ref } from 'vue'
 import { EMAIL, NUMBER, GITHUB_URL, LINKEDIN_URL } from '../constants'
 import AnimatedIcon from './AnimatedIcon.vue'
 import DarkModeToggleButton from './DarkModeToggleButton.vue'
@@ -39,7 +39,7 @@ function copyNumber() {
 
       <div class="flex flex-wrap items-center justify-between mx-auto">
         <div class="flex items-center w-max">
-          <img src="/jlabs-logo.svg" :class="float ? 'ml-3 mr-1.5 w-9' : 'mx-2.5 w-12'" />
+          <img src="/jlabs-logo.svg" :class="float ? 'logo-float' : 'logo-full'" />
           <h5 class="hide-for-mobile tracking-tight text-off-white dark:text-dark-gray"
             :class="float ? 'mr-3 font-bold text-lg' : 'mr-6'">
             {{ float ? 'J-Labs' : 'Jerriosity Labs' }}
@@ -125,3 +125,19 @@ function copyNumber() {
     </nav>
   </div>
 </template>
+
+<style lang="scss" scoped>
+  .logo-full {
+    margin-left: 0.6em;
+    margin-right: 1em;
+    width: 3em;
+    @include breakpoint-down(small) {
+      margin-left: 0;
+    }
+  }
+  .logo-float {
+    margin-left: 0.75em;
+    margin-right: 0.5em;
+    width: 2em;
+  }
+</style>

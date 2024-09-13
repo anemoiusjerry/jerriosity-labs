@@ -36,7 +36,7 @@ import StickyNote from '../../components/StickyNote.vue';
       <div class="flex self-end">
         <div class="flex items-end hide-for-mobile">
           <!-- Accent decor -->
-          <div class="relative border">
+          <div class="relative">
             <div class="absolute p-5 border-t-4 border-l-4 border-blood-orange dark:border-sky-blue"
               style="margin-top: -255px; margin-left: -20px;"></div>
           </div>
@@ -85,8 +85,11 @@ p {
 }
 
 #about-section {
-  @include breakpoint-up(medium) {
-    width: 80vw;
+  width: 80vw;
+  @include breakpoint-down(small) {
+    width: auto;
+    padding-left: 2em;
+    padding-right: 2em;
   }
 }
 </style>

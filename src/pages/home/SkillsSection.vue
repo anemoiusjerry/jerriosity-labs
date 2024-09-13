@@ -87,7 +87,7 @@ const otherCards = [
 ]
 
 onMounted(() => {
-  flipCards();
+  //flipCards();
 })
 
 async function flipCards() {
@@ -131,17 +131,17 @@ async function flipCards() {
       <div class="flex flex-col">
         <div class="flex flex-col items-center mb-2">
           <span class="text-2xl">Frontend</span>
-          <card-deck :cardProps="frontendCards" areaWidth="450px" />
+          <card-deck :cardProps="frontendCards" />
         </div>
 
         <div class="flex flex-col items-center mb-2">
           <span class="text-2xl">Backend</span>
-          <card-deck :cardProps="backendCards" areaWidth="450px" />
+          <card-deck :cardProps="backendCards"/>
         </div>
 
         <div class="flex flex-col items-center">
           <span class="text-2xl">Other</span>
-          <card-deck :cardProps="otherCards" areaWidth="450px" />
+          <card-deck :cardProps="otherCards"/>
         </div>
 
       </div>

@@ -1,12 +1,8 @@
 <script setup>
-import { ref, reactive } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import SkillCard from './SkillCard.vue'
 
 const props = defineProps({
-  areaWidth: {
-    type: String,
-    default: '100%'
-  },
   scrollThreshold: {
     type: Number,
     default: 0
@@ -15,27 +11,46 @@ const props = defineProps({
 })
 
 const scrollRef = ref(null)
+const deckWidth = ref(0)
 
-const scrollStyle = reactive({
-  maxWidth: props.areaWidth,
+onMounted(() => {
+  deckWidth.value = 3 * getCardWidth()
+  window.addEventListener('resize', resizeDeck)
+  resizeDeck()
+})
+onUnmounted(() => {
+  window.removeEventListener('resize', resizeDeck)
 })
 
 function scrollLeft() {
-  const scrollContainer = scrollRef.value;
-  const cardWidth = scrollContainer.querySelector('.snap-center').offsetWidth;
-  scrollContainer.scrollBy({
-    left: -(cardWidth + 15),
+  const cardWidth = getCardWidth()
+  scrollRef.value.scrollBy({
+    left: -cardWidth,
     behavior: 'smooth'
   })
 }
 
 function scrollRight() {
-  const scrollContainer = scrollRef.value;
-  const cardWidth = scrollContainer.querySelector('.snap-center').offsetWidth;
-  scrollContainer.scrollBy({
-    left: cardWidth + 15,
+  const cardWidth = getCardWidth()
+  scrollRef.value.scrollBy({
+    left: cardWidth,
     behavior: 'smooth'
   })
+}
+
+function getCardWidth() {
+  const cardElmt = scrollRef.value.querySelector('.card')
+  const cardStyle = getComputedStyle(cardElmt)
+  return cardElmt.offsetWidth + parseInt(cardStyle.marginLeft) + parseInt(cardStyle.marginRight)
+}
+
+function resizeDeck() {
+  if (window.innerWidth < 640) {
+    deckWidth.value = 2 * getCardWidth()
+  }
+  else {
+    deckWidth.value = 3 * getCardWidth()
+  }
 }
 </script>
 
@@ -44,25 +59,29 @@ function scrollRight() {
     <button v-if="props.cardProps.length >= scrollThreshold" @click="scrollLeft">
       <font-awesome-icon icon="fa-solid fa-angle-left" size="2xl" />
     </button>
-    
-    <div id='slide-deck' class="w-full overflow-x-auto snap-x snap-mandatory" :style="scrollStyle" ref="scrollRef">
-      <div class="flex">
-        <skill-card v-for="props in cardProps" v-bind="props" class="snap-center flex-shrink-0" />
-      </div>
+
+    <div id='slide-deck' ref="scrollRef" class="overflow-x-auto snap-x snap-mandatory flex"
+      :style="{maxWidth: `${deckWidth}px`}">
+
+        <skill-card v-for="props in cardProps" v-bind="props" :key="props.imgAlt" class="p-2"/>
+
     </div>
 
     <button v-if="props.cardProps.length >= scrollThreshold" @click="scrollRight">
-      <font-awesome-icon icon="fa-solid fa-angle-right"size="2xl" />
+      <font-awesome-icon icon="fa-solid fa-angle-right" size="2xl" />
     </button>
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 #slide-deck {
-  -ms-overflow-style: none;  /* IE, Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE, Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 #slide-deck::-webkit-scrollbar {
-  display: none;  /* Chrome, Safari, Opera */
+  display: none;
+  /* Chrome, Safari, Opera */
 }
 </style>

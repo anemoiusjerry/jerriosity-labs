@@ -35,7 +35,7 @@ export default {
       </div>
 
       <div id="right-section">
-        <type-text-area id="type-text" text="< Fullstack Developer. />" class="mb-5" />
+        <type-text-area id="type-text" text="< Fullstack Developer. />" class="my-5" />
         <a href="/resume.pdf" download="Jerry's CV.pdf">
           <outline-button text="Download my CV" iconCode="fa-solid fa-file-arrow-down" />
         </a>
@@ -72,7 +72,8 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    height: 80vh;
+    height: auto;
+    margin-top: 7rem;
   }
 }
 

@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import TimelineCard from '../../components/TimelineCard.vue';
 
 const projects = ref([
@@ -34,21 +34,45 @@ const projects = ref([
     summary: 'Website to showcase my skills and experience. Yes I also designed the logo too!'
   }
 ])
+
+const timelineRef = ref(null)
+const cardWidth = ref(0);
+const timelineWidth = ref(1000)
+
+onMounted(() => {
+  const card = timelineRef.value.querySelector('.snap-start')
+  cardWidth.value = card.offsetWidth
+  scaleTimeline()
+  window.addEventListener('resize', scaleTimeline)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', scaleTimeline)
+})
+
+// Calculate how many full cards to show when window shrinks
+const scaleTimeline = () => {
+  const maxCards = 4
+  let nCards = Math.floor(window.innerWidth / cardWidth.value)
+  nCards = Math.min(nCards, maxCards)
+  timelineWidth.value  = nCards * cardWidth.value
+}
+
 </script>
 
 <template>
   <section>
-    <div class="mt-16" style="width: 80vw;">
-      <div class="flex justify-end">
-        <h3 class="font-bold my-4">My Projects</h3>
-        <div class="relative ">
-          <div class="p-4 absolute border-t-2 border-r-2 border-blood-orange dark:border-sky-blue" style="margin-left:-7px; margin-top: 20px;"></div>
-          <div class="p-2 absolute bg-blood-orange dark:bg-sky-blue" style="margin-left:30px;"></div>
+    <div id="project-section" class="mt-10 flex flex-col items-center">
+      <div class="flex title">
+        <h3 class="font-bold">My Projects</h3>
+        <div class="relative">
+          <div class="p-4 absolute border-t-2 border-r-2 border-blood-orange dark:border-sky-blue" style="margin-left:-5px; margin-top: 5px;"></div>
+          <div class="p-2 absolute bg-blood-orange dark:bg-sky-blue" style="margin-left:32px; margin-top: -12px;"></div>
         </div>
       </div>
 
-      <div id="timeline" class="overflow-x-auto snap-x snap-mandatory">
-        <ol class="items-center flex p-5">
+      <div id="timeline" ref="timelineRef" class="overflow-x-auto snap-x snap-mandatory" :style="{maxWidth: `${timelineWidth}px`}">
+        <ol class="flex p-5">
           <timeline-card v-for="(item, index) in projects" :projName="item.title" :projDate="item.date"
             :projBlurb="item.summary" :hideLineLeft="index === 0" :hideLineRight="index === projects.length - 1"
             class="snap-start" />
@@ -59,6 +83,21 @@ const projects = ref([
 </template>
 
 <style lang="scss" scoped>
+.title {
+  align-self: end;
+  margin-right: 7em;
+  @include breakpoint-down(small) {
+    align-self: center;
+    margin-right: 0em;
+  }
+}
+
+#project-section {
+  width: 80vw;
+  @include breakpoint-down(small) {
+    width: auto;
+  }
+}
 #timeline {
   -ms-overflow-style: none;
   /* IE, Edge */

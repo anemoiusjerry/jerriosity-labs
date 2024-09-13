@@ -11,22 +11,58 @@ export default {
   data() {
     return {
       currentPage: 0,
+      newPage: 0,
       scrolling: false,
+      resizing: false,
+      timeoutID: null,
+      mediaQuery: null
     };
   },
   methods: {
-    handleScroll(event) {
-      if (this.scrolling || window.innerWidth < 640) {
-        return;
-      }
+    handleMediaQuery(event) {
+      // register mobile event listeners
+      if (event.matches) {
+        window.removeEventListener('wheel', this.scrollDesktop)
 
-      const ySens = 5; // change sensitivity
-      const delta = event.deltaY;
-      if (delta > ySens) {
-        this.nextPage();
+        // calculate scroll position based on page
+        const sectionHeights = this.getSectionHeights()
+        const scrollHeight = this.calculateMobileScroll(sectionHeights)
+        const scrollContainer = document.getElementById('fullPageScroll')
+        scrollContainer.scrollTop = scrollHeight
+
+        scrollContainer.addEventListener('scroll', this.scrollMobile)
+        window.addEventListener('resize', this.handleResize)
       }
-      else if (delta < -ySens) {
-        this.prevPage();
+      else {
+        const scrollContainer = document.getElementById('fullPageScroll')
+        scrollContainer.removeEventListener('scroll', this.scrollMobile)
+        window.removeEventListener('resize', this.handleResize)
+
+        scrollContainer.scrollTop = 0
+        this.scrollToPage(this.newPage)
+        window.addEventListener('wheel', this.scrollDesktop)
+      }
+    },
+    // snap scrolling page shifts
+    scrollDesktop(event) {
+      // change sensitivity
+      const ySens = 10;
+      if (!this.scrolling) {
+        if (event.deltaY > ySens) {
+          this.nextPage();
+        }
+        else if (event.deltaY < -ySens) {
+          this.prevPage();
+        }
+      }
+    },
+    // continuous smooth scrolling
+    scrollMobile() {
+      // only calculate the new page for desktop mode when not resizing!
+      if (!this.resizing) {
+        const scrollPos = document.getElementById('fullPageScroll').scrollTop
+        const sectionHeights = this.getSectionHeights()
+        this.newPage = this.calculatePageIndex(scrollPos, sectionHeights)
       }
     },
     // change timeout period to control sensitivtiy
@@ -34,37 +70,76 @@ export default {
       if (this.currentPage < this.sections.length - 1) {
         this.scrolling = true;
         this.scrollToPage(this.currentPage + 1)
-        setTimeout(() => {
-          this.scrolling = false;
-        }, 1500);
+        setTimeout(() => this.scrolling = false, 1000);
       }
     },
     prevPage() {
       if (this.currentPage > 0) {
         this.scrolling = true;
         this.scrollToPage(this.currentPage - 1)
-        setTimeout(() => {
-          this.scrolling = false;
-        }, 1500);
+        setTimeout(() => this.scrolling = false, 1000);
       }
     },
     scrollToPage(index) {
       this.currentPage = index;
       this.sendSectionNumber(index);
     },
+
+    getSectionHeights() {
+      let heights = []
+      document.querySelectorAll('.page').forEach(p => heights.push(p.offsetHeight))
+      return heights
+    },
+
+    calculateMobileScroll(sectionHeights) {
+      let scrollHeight = 0
+      for (const sectionHeight of sectionHeights.slice(0, this.currentPage))
+        scrollHeight += sectionHeight
+      return scrollHeight
+    },
+
+    // calculate which section scrolled to
+    calculatePageIndex(scrollHeight, sectionHeights) {
+      let lowerBound = 0
+      for (let i = 0; i < sectionHeights.length; i++) {
+        const upperBound = lowerBound + sectionHeights[i]
+        if (scrollHeight >= lowerBound && scrollHeight < upperBound)
+          return i
+        else
+          lowerBound = upperBound
+      }
+    },
+
+    // marks the resize flag. IMPORTANT as resizing window triggers scroll event
+    // causing incorrect updating of new page calculation
+    handleResize() {
+      this.resizing = true
+
+      // block simulates on resize end
+      clearTimeout(this.timeoutID)
+      this.timeoutID = setTimeout(() => {
+        this.resizing = false
+      }, 200)
+    }
   },
   mounted() {
-    window.addEventListener('wheel', this.handleScroll);
+    this.mediaQuery = window.matchMedia('(max-width: 39.3975em)');
+    this.handleMediaQuery(this.mediaQuery);
+    this.mediaQuery.addEventListener('change', this.handleMediaQuery);
   },
   beforeDestroy() {
-    window.removeEventListener('wheel', this.handleScroll);
-  },
+    this.mediaQuery.removeEventListener('change', this.handleMediaQuery)
+    const scrollContainer = document.getElementById('fullPageScroll')
+    scrollContainer.removeEventListener('scroll', this.scrollMobile)
+    window.removeEventListener('resize', this.handleResize)
+    window.removeEventListener('wheel', this.scrollDesktop)
+  }
 };
 </script>
 
 
 <template>
-  <div class="full-page-scroll">
+  <div id="fullPageScroll" class="full-page-scroll">
     <div class="page border-b-dark-gray dark:border-b-off-white" v-for="(section, index) in sections" :key="index"
       :style="{ transform: `translateY(${(index - currentPage) * 100}%)` }">
       <slot :name="'section-' + index"></slot>
@@ -93,7 +168,7 @@ export default {
   position: absolute;
   margin-left: 10%;
   margin-right: 7%;
-  margin-top: 7%;
+  margin-top: 8%;
   transition: transform 1s ease;
 
   @include breakpoint-down(small) {
@@ -148,9 +223,11 @@ export default {
 body.dark .indicators span {
   border-color: $offWhite;
 }
+
 body.dark .indicators span:hover {
   border-color: $skyBlue;
 }
+
 body.dark .indicators .active {
   background-color: $skyBlue;
 }

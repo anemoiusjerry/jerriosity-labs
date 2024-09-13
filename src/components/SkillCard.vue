@@ -11,13 +11,12 @@ export default {
 </script>
 
 <template>
-
   <div class="card">
     <div class="card-body">
       <div class="card-front shadow-lg bg-white/50 dark:bg-light-gray">
-        <div class="flex flex-row mb-3">
+        <div class="flex flex-row mb-3 justify-center items-center img-container">
           <div v-for="path in imgSrcs">
-            <img class="w-20 h-20" :src="path" :alt="imgAlt" />
+            <img :src="path" :alt="imgAlt" />
           </div>
         </div>
         <span class="text-sm text-dark-gray dark:text-off-white">{{ title }}</span>
@@ -31,10 +30,22 @@ export default {
 
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+img {
+  width: 4.5em;
+}
+.img-container {
+  width: 5em;
+  height: 5em;
+
+}
+
 .card {
   perspective: 800px;
-  margin: 10px;
+  scroll-snap-align: center;
+  @include breakpoint-down(small) {
+    scroll-snap-align: start;
+  }
 }
 
 .card-body {
@@ -52,8 +63,9 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 25px;
-  border-radius: 10px;
+  height: 10em;
+  padding: 1.5em;
+  border-radius: 0.7em;
 }
 
 .card-back {
