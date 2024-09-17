@@ -15,11 +15,11 @@ const props = defineProps(['type', 'id', 'label'])
   </div>
 </template>
 
-<style scoped>
+<style lang='scss' scoped>
 .floating-input {
-  color: var(--dark-gray);
-  caret-color: var(--blood-orange);
-  border-color: var(--dark-gray);
+  color: $darkGray;
+  caret-color: $bloodOrange;
+  border-color: $darkGray;
   background-color: transparent;
   border-width: 0px;
   border-bottom-width: 2px;
@@ -28,20 +28,20 @@ const props = defineProps(['type', 'id', 'label'])
 .floating-input:hover, .floating-input:focus {
   outline: none;
   box-shadow: none;
-  border-color: var(--blood-orange);
+  border-color: $bloodOrange;
 }
 
 body.dark .floating-input {
-  color: var(--off-white);
-  caret-color: var(--sky-blue);
-  border-color: var(--off-white);
+  color: $offWhite;
+  caret-color: $skyBlue;
+  border-color: $offWhite;
 }
 
 body.dark .floating-input:hover {
-  border-color: var(--sky-blue);
+  border-color: $skyBlue;
 }
 
 body.dark .floating-input:focus {
-  border-color: var(--sky-blue);
+  border-color: $skyBlue;
 }
 </style>

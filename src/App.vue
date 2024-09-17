@@ -37,7 +37,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <nav-header :float="curSection !==0 && !isMobile" />
+  <nav-header :float="curSection !== 0 && !isMobile" />
 
   <full-page-scroll :sections="sections" :sendSectionNumber="getSectionNumber">
     <template #section-0>
@@ -53,7 +53,7 @@ onUnmounted(() => {
       <AboutSection />
     </template>
     <template #section-4>
-        <ContactSection />
-      </template>
+      <ContactSection />
+    </template>
   </full-page-scroll>
 </template>

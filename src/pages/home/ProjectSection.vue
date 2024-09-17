@@ -2,36 +2,34 @@
 import { onMounted, onUnmounted, ref } from 'vue'
 import TimelineCard from '../../components/TimelineCard.vue';
 
+const resPath = '/public/projects'
 const projects = ref([
   {
     title: 'Streamwise D.I.',
     date: 'Dec 2019',
-    summary: 'First professional role as a Systems Engineer at an IIoT startup.'
+    summary: 'First professional role as a Systems Engineer at an IIoT startup.',
+    image: `${resPath}/streamwise.png`,
+    borderColour: '#002c4e'
   },
   {
     title: 'Restored To Eden',
     date: 'Apr 2020',
-    summary: 'Freelance work creating an automated formulation system for custom skin care products.'
-  },
-  {
-    title: 'Travel Buddy',
-    date: 'Jun 2021',
-    summary: 'Mobile app that connects solo travellers with similar itineraries'
-  },
-  {
-    title: 'Streamwise D.I.',
-    date: 'Dec 2022',
-    summary: 'Promotion to Technical Engineering Manager leading the software team'
+    summary: 'Freelance work creating an automated formulation system for custom skin care products.',
+    image: `${resPath}/rte.jpg`,
+    borderColour: '#eac9ba'
   },
   {
     title: 'Rhombus AI',
     date: 'Apr 2024',
-    summary: 'Recruitment project where I made a website for users to perform data type inference on large CSV files.'
+    summary: 'Recruitment project where I made a website for users to perform data type inference on large CSV files.',
+    image: `${resPath}/rhombus.jpg`,
+    borderColour: '#15b7cb'
   },
   {
     title: 'This website!',
     date: 'Aug 2024',
-    summary: 'Website to showcase my skills and experience. Yes I also designed the logo too!'
+    summary: 'Website to showcase my skills and experience. Yes I also designed the logo too!',
+    image: `${resPath}/jerriositylabs.png`
   }
 ])
 
@@ -74,7 +72,7 @@ const scaleTimeline = () => {
       <div id="timeline" ref="timelineRef" class="overflow-x-auto snap-x snap-mandatory" :style="{maxWidth: `${timelineWidth}px`}">
         <ol class="flex p-5">
           <timeline-card v-for="(item, index) in projects" :projName="item.title" :projDate="item.date"
-            :projBlurb="item.summary" :hideLineLeft="index === 0" :hideLineRight="index === projects.length - 1"
+            :projBlurb="item.summary" :bgImage="item.image" :borderColour="item.borderColour" :hideLineLeft="index === 0" :hideLineRight="index === projects.length - 1"
             class="snap-start" />
         </ol>
       </div>

@@ -1,22 +1,39 @@
 <script setup>
+import {reactive} from 'vue'
+
 const props = defineProps({
   projName: String,
   projDate: String,
   projBlurb: String,
+  bgImage: String,
+  borderColour: String,
   hideLineLeft: Boolean,
   hideLineRight: Boolean
 })
 
+const cardFrontStyle = reactive({
+  backgroundImage: `url("${props.bgImage}")`,
+  backgroundSize: 'cover'
+})
 </script>
 
 <template>
   <li>
     <!-- timeline card -->
-    <div class="m-8 flex justify-center" style="height: 300px;">
-      <div
-        class="w-52 p-5 rounded-xl border-2 cursor-pointer shadow-lg border-dark-gray bg-white/50 dark:border-off-white dark:bg-light-gray/50">
-        <h3 class="mb-2 text-lg font-semibold">{{ props.projName }}</h3>
-        <p class="font-normal block text-dark-gray dark:text-off-white">{{ props.projBlurb }}</p>
+    <div class="card m-8 flex justify-center">
+      <div class="card-body">
+        <div class="card-front" :style="cardFrontStyle">
+        </div>
+
+        <div class="card-back bg-white dark:bg-light-gray">
+          <div>
+            <span class="mb-2 text-lg font-bold">{{ props.projName }}</span>
+            <p class="font-normal block text-dark-gray dark:text-off-white">{{ props.projBlurb }}</p>
+          </div>
+          <button class="text-left">
+            Learn More <font-awesome-icon icon="fa-solid fa-angle-right"/>
+          </button>
+        </div>
       </div>
     </div>
 
@@ -35,4 +52,40 @@ const props = defineProps({
   </li>
 </template>
 
-<style scoped></style>
+<style lang="scss" scoped>
+.card {
+  perspective: 750px;
+}
+
+.card-body {
+  transition: transform 1s;
+  transform-style: preserve-3d;
+
+  .card:hover & {
+    transform: rotateY(-180deg);
+  }
+}
+
+.card-front, .card-back {
+  backface-visibility: hidden;
+  height: 18em;
+  width: 13em;
+  border-radius: 1em;
+  border-width: 3px;
+  border: 3px solid $darkGray;
+}
+
+body.dark .card-front, body.dark .card-back {
+    border-color: $offWhite;
+}
+
+.card-back {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: rotateY(-180deg);
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  padding: 1.5em;
+}
+</style>

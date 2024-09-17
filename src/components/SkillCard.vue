@@ -41,7 +41,7 @@ img {
 }
 
 .card {
-  perspective: 800px;
+  perspective: 750px;
   scroll-snap-align: center;
   @include breakpoint-down(small) {
     scroll-snap-align: start;
@@ -51,7 +51,6 @@ img {
 .card-body {
   transition: transform 1s;
   transform-style: preserve-3d;
-
   .card:hover & {
     transform: rotateY(-180deg);
   }

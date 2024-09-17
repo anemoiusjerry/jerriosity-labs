@@ -3,7 +3,7 @@ import { onMounted } from 'vue'
 import CardDeck from '../../components/CardDeck.vue'
 import StickyNote from '../../components/StickyNote.vue';
 
-const ICON_PATH = '/brandlogos'
+const ICON_PATH = '/brands'
 
 const frontendCards = [
   {
