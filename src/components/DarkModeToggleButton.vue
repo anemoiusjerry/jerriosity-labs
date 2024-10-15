@@ -10,16 +10,7 @@ export default {
     }
   },
   created() {
-    // detect user prefered theme
-    const lastTheme = localStorage.getItem('theme')
-    // local storage only meant to be read by browser
-    if (lastTheme) {
-      this.isDark = lastTheme === 'dark'
-    }
-    // check system setting
-    else {
-      this.isDark = window.matchMedia('prefers-color-scheme:dark').matches
-    }
+    this.isDark = window.matchMedia('prefers-color-scheme:dark').matches
     this.toggleMode()
   },
   methods: {

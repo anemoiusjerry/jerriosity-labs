@@ -1,0 +1,66 @@
+<script lang="ts" setup>
+import TypeTextArea from '../../components/TypeTextArea.vue';
+import Carousel from '../../components/Carousel.vue';
+import DesktopMock from '../../components/DesktopMock.vue';
+import { ref } from 'vue';
+
+const imageUrls = ref(['/projects/rte/rte-app.png', '/projects/rte/rte-settings.png'])
+</script>
+
+<template>
+  <div class="flex flex-col items-center p-36">
+    <type-text-area text='< Restored To Eden />' class="text-2xl" />
+    <a class="line-through">www.restoredtoeden.com</a>
+
+    <p class="my-10">
+      My first freelance job, lasting a bit over one year inclusive of all the post launch support. The client runs a
+      bespoke skin care service where a set of creams is crafted from hand selected ingredients based on the skin
+      conditions of customers. I was tasked to automate this process by producing the ingredients and their respective
+      amounts as well as an information brochure for the customers to read about the product. I Learnt a lot of skills
+      outside of coding from registering my own business, to drafting scopes of work and handling client complaints.
+    </p>
+
+    <div class="flex">
+      <p class="me-10">
+        I setup many meetings with my client to ensure I fully understand the desired deliverables.
+        The crux of this project was a constraint satisfaction problem, and these problems are traditionally
+        solved using recursive techniques. My research pointed to a modified version of Knuth's Algorithm X.
+        <br><br>
+        Customers begin by going to the website catalog and choosing which products they would like to purchase,
+        these can include product bundles. This is called an order. For each order, the customer fills out a
+        questionnaire asking what kind of skin complications they experience. Based on the answers, suitable ingredients
+        that address these complications will be selected into formulations for each product.
+        <br><br>
+        After analysing sample formulations, I saw and the client confirmed that for each product type, the types and
+        weighting of ingredients are more or less static. The main problem is selecting which ingredients of each
+        ingredient type to put into the formulation. I asked the client to produce templates for these products as well
+        as standardising the information brochure so its production can be automated.
+        <br><br>
+        Using these templates, my program will plug the relevant ingredients and its information into them exporting
+        the end result. I also exported the selected ingredients list so the client can more easily analyse the
+        program performance.
+      </p>
+      <img src="/projects/rte/user-diagram.png" alt="User flow" />
+    </div>
+
+    <p>
+      While the excel template method is crude, employing machine learning models would have also been unsuitable due to
+      the lack of training data. There just werent enough real orders to sufficiently build a model. Even if a model was
+      created tweaking it would be difficult too. I still had my full time during the day and so enlisted the help of my
+      friend to code this project together, splitting the earnings in the process. Python and the PyQt4 UI library was
+      used since we were both familiar and thus put product out faster. Putting out the excel file formulations were
+      easy, while the information brochure was styled with HTML then converted to PDF (see Streamwise D.I.). My friend
+      was instrumental in implementing Knuth's algorithm and beta testing the app since I do not have MacOS. We made
+      several releases, tweaking the algorithm each time until the client was satisfied.
+    </p>
+    <p>
+      Many months after the final release, an unexpected email reached my inbox informing me that the app no
+      longer works. Through a share screen I diagnosed the problem and realised it was due to the new Apple
+      M1 chip release that is incompatible with the python UI library I used. Luckily the solution was to simply
+      use another library PySide2, althought this took much longer than I expected. From this I learned how
+      I should handle post launch support better for the next project.
+    </p>
+
+    <carousel :images="imageUrls" />
+  </div>
+</template>

@@ -1,18 +1,15 @@
-<script setup>
+<script setup lang="ts">
 import {reactive} from 'vue'
+import { ProjectInfo } from '../interfaces';
 
-const props = defineProps({
-  projName: String,
-  projDate: String,
-  projBlurb: String,
-  bgImage: String,
-  borderColour: String,
+const props = defineProps<{
+  project: ProjectInfo,
   hideLineLeft: Boolean,
   hideLineRight: Boolean
-})
+}>()
 
 const cardFrontStyle = reactive({
-  backgroundImage: `url("${props.bgImage}")`,
+  backgroundImage: `url("${props.project.image}")`,
   backgroundSize: 'cover'
 })
 </script>
@@ -27,12 +24,12 @@ const cardFrontStyle = reactive({
 
         <div class="card-back bg-white dark:bg-light-gray">
           <div>
-            <span class="mb-2 text-lg font-bold">{{ props.projName }}</span>
-            <p class="font-normal block text-dark-gray dark:text-off-white">{{ props.projBlurb }}</p>
+            <span class="mb-2 text-lg font-bold">{{ props.project.title }}</span>
+            <p class="font-normal block text-dark-gray dark:text-off-white">{{ props.project.summary }}</p>
           </div>
-          <button class="text-left">
+          <router-link :to="props.project.link" class="text-left">
             Learn More <font-awesome-icon icon="fa-solid fa-angle-right"/>
-          </button>
+          </router-link>
         </div>
       </div>
     </div>
@@ -47,7 +44,7 @@ const cardFrontStyle = reactive({
     </div>
 
     <div class="flex justify-center mt-5">
-      <time class="block mb-2 text-sm text-dark-gray dark:text-off-white">{{ props.projDate }}</time>
+      <time class="block mb-2 text-sm text-dark-gray dark:text-off-white">{{ props.project.date }}</time>
     </div>
   </li>
 </template>

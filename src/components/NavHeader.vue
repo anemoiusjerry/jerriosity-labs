@@ -39,11 +39,13 @@ function copyNumber() {
 
       <div class="flex flex-wrap items-center justify-between mx-auto">
         <div class="flex items-center w-max">
-          <img src="/jlabs-logo.svg" :class="float ? 'logo-float' : 'logo-full'" />
-          <h5 class="hide-for-mobile tracking-tight text-off-white dark:text-dark-gray"
-            :class="float ? 'mr-3 font-bold text-lg' : 'mr-6'">
-            {{ float ? 'J-Labs' : 'Jerriosity Labs' }}
-          </h5>
+          <a href="/" class="inline-flex">
+            <img src="/jlabs-logo.svg" :class="float ? 'logo-float' : 'logo-full'" />
+            <h5 class="hide-for-mobile tracking-tight text-off-white dark:text-dark-gray"
+              :class="float ? 'mr-3 font-bold text-lg' : 'mr-6'">
+              {{ float ? 'J-Labs' : 'Jerriosity Labs' }}
+            </h5>
+          </a>
           <dark-mode-toggle-button size="1.5px" />
         </div>
 
@@ -67,7 +69,8 @@ function copyNumber() {
         <button class="hide-for-desktop" data-collapse-toggle="navbar-hamburger" type="button"
           aria-controls="navbar-hamburger" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
-          <font-awesome-icon icon="fa-solid fa-bars" size="xl" class="hover:text-blood-orange dark:hover:text-sky-blue" />
+          <font-awesome-icon icon="fa-solid fa-bars" size="xl"
+            class="hover:text-blood-orange dark:hover:text-sky-blue" />
         </button>
 
         <div class="hide-for-desktop hidden w-full" id="navbar-hamburger">
@@ -90,13 +93,9 @@ function copyNumber() {
                   <font-awesome-icon icon="fa-solid fa-envelope" size="lg" class="mr-2" />
                   Email
                 </div>
-                <transition 
-                enter-active-class="transition-opacity duration-500 ease-in-out" 
-                leave-active-class="transition-opacity duration-500 ease-in-out"
-                enter-from-class="opacity-0"
-                enter-to-class="opacity-100" 
-                leave-from-class="opacity-100" 
-                leave-to-class="opacity-0">
+                <transition enter-active-class="transition-opacity duration-500 ease-in-out"
+                  leave-active-class="transition-opacity duration-500 ease-in-out" enter-from-class="opacity-0"
+                  enter-to-class="opacity-100" leave-from-class="opacity-100" leave-to-class="opacity-0">
                   <span v-if="copiedEmail">copied!</span>
                 </transition>
               </div>
@@ -107,13 +106,9 @@ function copyNumber() {
                   <font-awesome-icon icon="fa-brands fa-whatsapp" size="lg" class="mr-2" />
                   WhatsApp
                 </div>
-                <transition 
-                enter-active-class="transition-opacity duration-500 ease-in-out" 
-                leave-active-class="transition-opacity duration-500 ease-in-out"
-                enter-from-class="opacity-0"
-                enter-to-class="opacity-100" 
-                leave-from-class="opacity-100" 
-                leave-to-class="opacity-0">
+                <transition enter-active-class="transition-opacity duration-500 ease-in-out"
+                  leave-active-class="transition-opacity duration-500 ease-in-out" enter-from-class="opacity-0"
+                  enter-to-class="opacity-100" leave-from-class="opacity-100" leave-to-class="opacity-0">
                   <span v-if="copiedNumber">copied!</span>
                 </transition>
               </div>
@@ -127,17 +122,19 @@ function copyNumber() {
 </template>
 
 <style lang="scss" scoped>
-  .logo-full {
-    margin-left: 0.6em;
-    margin-right: 1em;
-    width: 3em;
-    @include breakpoint-down(small) {
-      margin-left: 0;
-    }
+.logo-full {
+  margin-left: 0.6em;
+  margin-right: 1em;
+  width: 3em;
+
+  @include breakpoint-down(small) {
+    margin-left: 0;
   }
-  .logo-float {
-    margin-left: 0.75em;
-    margin-right: 0.5em;
-    width: 2em;
-  }
+}
+
+.logo-float {
+  margin-left: 0.75em;
+  margin-right: 0.5em;
+  width: 2em;
+}
 </style>

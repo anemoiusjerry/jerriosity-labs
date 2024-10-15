@@ -16,7 +16,8 @@
     "@fortawesome/vue-fontawesome": "^3.0.8",
     "flowbite": "^2.5.1",
     "vue": "^3.4.31",
-    "vue-flip": "^3.0.2"
+    "vue-flip": "^3.0.2",
+    "vue-router": "^4.4.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",

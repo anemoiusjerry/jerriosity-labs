@@ -74,6 +74,13 @@ h6 {
   }
 }
 
+p {
+  color: $darkGray;
+}
+body.dark p {
+  color: $offWhite;
+}
+
 img {
   display: block;
   max-width: 100%;
