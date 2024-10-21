@@ -21,7 +21,6 @@ function getSectionNumber(num) {
 </script>
 
 <template>
-
   <full-page-scroll :isMobile="isMobile" :sections="sections"
     :sendSectionNumber="getSectionNumber">
     <template #section-0>

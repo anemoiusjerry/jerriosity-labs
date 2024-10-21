@@ -1,7 +1,9 @@
 <script lang="ts" setup>
 import { onMounted, onUnmounted, provide, ref } from 'vue'
 import NavHeader from './components/NavHeader.vue';
+import { useRoute } from 'vue-router';
 
+const route = useRoute
 const homeSection = ref(0)
 const isMobile = ref(false)
 provide('isMobile', isMobile)
@@ -29,6 +31,6 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <nav-header :float="!isMobile && homeSection !== 0" />
+  <nav-header :float="(route().path === '/' && homeSection !== 0)" />
   <router-view @update-home-section="updateHomeSection"></router-view>
 </template>
