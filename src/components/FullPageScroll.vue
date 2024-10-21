@@ -16,20 +16,12 @@ export default {
       currentPage: 0,
       scrolling: false,
       resizing: false,
-      timeoutID: null,
-      backNav: false
+      timeoutID: null
     };
   },
   watch: {
     isMobile(newVal, oldVal) {
       this.handleScreenSize(newVal)
-    },
-    backNav(newVal, oldVal) {
-      console.log("fewfewefw")
-      this.backNav = newVal
-      if (newVal) {
-        this.currentPage = 2
-      }
     }
   },
   methods: {

@@ -17,6 +17,13 @@ function checkMobile(e: MediaQueryListEvent) {
   isMobile.value = e.matches
 }
 
+function floatNavBar() {
+  if (isMobile.value) {
+    return false
+  }
+  return !(route().path === '/' && homeSection.value === 0)
+}
+
 onMounted(() => {
   mediaQuery = window.matchMedia('(max-width: 39.3975em)');
   mediaQuery.addEventListener('change', checkMobile);
@@ -31,6 +38,6 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <nav-header :float="(route().path === '/' && homeSection !== 0)" />
+  <nav-header :float="floatNavBar()" />
   <router-view @update-home-section="updateHomeSection"></router-view>
 </template>
