@@ -7,7 +7,22 @@ import DesktopMock from '../../components/DesktopMock.vue';
 <template>
   <div class="flex flex-col items-center p-36">
     <type-text-area text='< Rhombus AI />' class="text-2xl" />
-    <a href="https://rhombusai.com" class="hover:underline" target="_blank">https://rhombusai.com</a>
+    <div>
+      <a href="https://rhombusai.com" class="hover:underline me-4" target="_blank">https://rhombusai.com</a>
+
+      <a data-popover-target="popover-default" data-popover-placement="right"
+        href="https://github.com/anemoiusjerry/auto-type-infer-ML" target="_blank">
+        <font-awesome-icon icon="fa-solid fa-laptop-code" size="lg" />
+      </a>
+
+      <div data-popover id="popover-default" role="tooltip"
+        class="absolute z-10 invisible inline-block text-sm transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:border-gray-600 dark:bg-light-gray">
+        <div class="px-3 py-2">
+          <p>See code on GitHub</p>
+        </div>
+        <div data-popper-arrow></div>
+      </div>
+    </div>
 
     <p class="my-10">
       This was an interesting, albeit small job application project given by Rhombus AI. Premise is to
@@ -22,19 +37,19 @@ import DesktopMock from '../../components/DesktopMock.vue';
         datetime and categorical. Floats are the easiest to detect by simply trying type conversion, then bools etc.
         If all other types fail the default is then string.
       </p>
-      <div class="text-off-white">
+      <div class="text-dark-gray dark:text-off-white">
         <span class="font-bold">Some considerations:</span>
         <ul>
           <li class="flex items-center">
-            <div class="h-2 w-2 bg-sky-blue rotate-45 mx-3"></div>
+            <div class="h-2 w-2 rotate-45 mx-3 bg-blood-orange dark:bg-sky-blue"></div>
             Prevent over classification to categorical class
           </li>
           <li class="flex items-center">
-            <div class="h-2 w-2 bg-sky-blue rotate-45 mx-3"></div>
+            <div class="h-2 w-2 rotate-45 mx-3 bg-blood-orange dark:bg-sky-blue"></div>
             Parsing different date-time formats (eg day month swap is tricky)
           </li>
           <li class="flex items-center">
-            <div class="h-2 w-2 bg-sky-blue rotate-45 mx-3"></div>
+            <div class="h-2 w-2 rotate-45 mx-3 bg-blood-orange dark:bg-sky-blue"></div>
             Parsing different number formats ("," vs ".")
           </li>
         </ul>
@@ -134,7 +149,7 @@ import DesktopMock from '../../components/DesktopMock.vue';
     </p>
 
     <div>
-      <desktop-mock imageUrl="/projects/rhombus/home.png" :size="2"/>
+      <desktop-mock imageUrl="/projects/rhombus/home.png" :size="2" />
     </div>
   </div>
 </template>

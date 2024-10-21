@@ -29,16 +29,7 @@ const router = createRouter({
     {path: '/projects/restored-to-eden', component: RestoredToEdenDesc},
     {path: '/projects/rhombus-ai', component: RhombusAI},
     {path: '/projects/jerriosity-labs', component: JerriosityLabs}
-  ],
-  scrollBehavior(to, from, savedPosition) {
-    console.log(savedPosition)
-    if (savedPosition) {
-      return savedPosition
-    }
-    else {
-      return {top:0}
-    }
-  }
+  ]
 })
 
 const app = createApp(App)

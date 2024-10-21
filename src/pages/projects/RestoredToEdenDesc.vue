@@ -1,16 +1,29 @@
 <script lang="ts" setup>
 import TypeTextArea from '../../components/TypeTextArea.vue';
-import Carousel from '../../components/Carousel.vue';
-import DesktopMock from '../../components/DesktopMock.vue';
-import { ref } from 'vue';
+//import Carousel from '../../components/Carousel.vue';
+//import { ref } from 'vue';
 
-const imageUrls = ref(['/projects/rte/rte-app.png', '/projects/rte/rte-settings.png'])
+//const imageUrls = ref(['/projects/rte/rte-app.png', '/projects/rte/rte-settings.png'])
 </script>
 
 <template>
   <div class="flex flex-col items-center p-36">
     <type-text-area text='< Restored To Eden />' class="text-2xl" />
-    <a class="line-through">www.restoredtoeden.com</a>
+    <div>
+      <a class="line-through me-4">www.restoredtoeden.com</a>
+      <a data-popover-target="popover-default" data-popover-placement="right"
+        href="https://github.com/anemoiusjerry/auto-ingredient-selector" target="_blank">
+        <font-awesome-icon icon="fa-solid fa-laptop-code" size="lg" />
+      </a>
+
+      <div data-popover id="popover-default" role="tooltip"
+        class="absolute z-10 invisible inline-block text-sm transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:border-gray-600 dark:bg-light-gray">
+        <div class="px-3 py-2">
+          <p>See code on GitHub</p>
+        </div>
+        <div data-popper-arrow></div>
+      </div>
+    </div>
 
     <p class="my-10">
       My first freelance job, lasting a bit over one year inclusive of all the post launch support. The client runs a
@@ -43,24 +56,25 @@ const imageUrls = ref(['/projects/rte/rte-app.png', '/projects/rte/rte-settings.
       <img src="/projects/rte/user-diagram.png" alt="User flow" />
     </div>
 
-    <p>
-      While the excel template method is crude, employing machine learning models would have also been unsuitable due to
-      the lack of training data. There just werent enough real orders to sufficiently build a model. Even if a model was
-      created tweaking it would be difficult too. I still had my full time during the day and so enlisted the help of my
-      friend to code this project together, splitting the earnings in the process. Python and the PyQt4 UI library was
-      used since we were both familiar and thus put product out faster. Putting out the excel file formulations were
-      easy, while the information brochure was styled with HTML then converted to PDF (see Streamwise D.I.). My friend
-      was instrumental in implementing Knuth's algorithm and beta testing the app since I do not have MacOS. We made
-      several releases, tweaking the algorithm each time until the client was satisfied.
-    </p>
-    <p>
-      Many months after the final release, an unexpected email reached my inbox informing me that the app no
-      longer works. Through a share screen I diagnosed the problem and realised it was due to the new Apple
-      M1 chip release that is incompatible with the python UI library I used. Luckily the solution was to simply
-      use another library PySide2, althought this took much longer than I expected. From this I learned how
-      I should handle post launch support better for the next project.
-    </p>
-
-    <carousel :images="imageUrls" />
+    <div class="flex mt-10">
+      <img :src="`/projects/rte/rte-app.png`" width="500" class="mr-10 rounded-lg dark:hidden" />
+      <img :src="`/projects/rte/rte-app-dark.png`" width="500" class="mr-10 rounded-lg hidden dark:block" />
+      <p>
+        While the excel template method is crude, employing machine learning models would have also been unsuitable due
+        to the lack of training data. There just werent enough real orders to sufficiently build a model. Even if a
+        model was created tweaking it would be difficult too. I still had my full time during the day and so enlisted
+        the help of my friend to code this project together, splitting the earnings in the process. Python and the PyQt4
+        UI library was used since we were both familiar and thus put product out faster. Putting out the excel file
+        formulations were easy, while the information brochure was styled with HTML then converted to PDF (see
+        Streamwise D.I.). My friend was instrumental in implementing Knuth's algorithm and beta testing the app since I
+        do not have MacOS. We made several releases, tweaking the algorithm each time until the client was satisfied.
+        <br><br>
+        Many months after the final release, an unexpected email reached my inbox informing me that the app no
+        longer works. Through a share screen I diagnosed the problem and realised it was due to the new Apple
+        M1 chip release that is incompatible with the python UI library I used. Luckily the solution was to simply
+        use another library PySide2, althought this took much longer than I expected. From this I learned how
+        I should handle post launch support better for the next project.
+      </p>
+    </div>
   </div>
 </template>

@@ -1,36 +1,52 @@
 <script>
+import { useRouter } from 'vue-router';
+
 export default {
   name: 'FullPageScroll',
   props: {
+    isMobile: Boolean,
+    sendSectionNumber: Function,
     sections: {
       type: Array,
       required: true,
-    },
-    sendSectionNumber: Function,
+    }
   },
   data() {
     return {
       currentPage: 0,
-      newPage: 0,
       scrolling: false,
       resizing: false,
       timeoutID: null,
-      mediaQuery: null
+      backNav: false
     };
   },
+  watch: {
+    isMobile(newVal, oldVal) {
+      this.handleScreenSize(newVal)
+    },
+    backNav(newVal, oldVal) {
+      console.log("fewfewefw")
+      this.backNav = newVal
+      if (newVal) {
+        this.currentPage = 2
+      }
+    }
+  },
   methods: {
-    handleMediaQuery(event) {
-      // register mobile event listeners
-      if (event.matches) {
+    // Mobile vs Desktop screen changes
+    handleScreenSize(isMobile) {
+      if (isMobile) {
         window.removeEventListener('wheel', this.scrollDesktop)
 
         // calculate scroll position based on page
         const sectionHeights = this.getSectionHeights()
         const scrollHeight = this.calculateMobileScroll(sectionHeights)
+        // set scroll bar position to correct section
         const scrollContainer = document.getElementById('fullPageScroll')
         scrollContainer.scrollTop = scrollHeight
 
         scrollContainer.addEventListener('scroll', this.scrollMobile)
+        // detect on resize end
         window.addEventListener('resize', this.handleResize)
       }
       else {
@@ -38,8 +54,9 @@ export default {
         scrollContainer.removeEventListener('scroll', this.scrollMobile)
         window.removeEventListener('resize', this.handleResize)
 
+        /* need to reset scrollTop otherwise theres visual bug
+        where entire pages are shifted upward */
         scrollContainer.scrollTop = 0
-        this.scrollToPage(this.newPage)
         window.addEventListener('wheel', this.scrollDesktop)
       }
     },
@@ -62,7 +79,7 @@ export default {
       if (!this.resizing) {
         const scrollPos = document.getElementById('fullPageScroll').scrollTop
         const sectionHeights = this.getSectionHeights()
-        this.newPage = this.calculatePageIndex(scrollPos, sectionHeights)
+        this.scrollToPage(this.calculatePageIndex(scrollPos, sectionHeights))
       }
     },
     // change timeout period to control sensitivtiy
@@ -123,12 +140,10 @@ export default {
     }
   },
   mounted() {
-    this.mediaQuery = window.matchMedia('(max-width: 39.3975em)');
-    this.handleMediaQuery(this.mediaQuery);
-    this.mediaQuery.addEventListener('change', this.handleMediaQuery);
+    // initial setup for screen
+    this.handleScreenSize(this.isMobile)
   },
   beforeDestroy() {
-    this.mediaQuery.removeEventListener('change', this.handleMediaQuery)
     const scrollContainer = document.getElementById('fullPageScroll')
     scrollContainer.removeEventListener('scroll', this.scrollMobile)
     window.removeEventListener('resize', this.handleResize)

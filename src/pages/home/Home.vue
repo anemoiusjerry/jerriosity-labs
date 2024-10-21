@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { watch, ref, onMounted, onUnmounted, inject, nextTick } from 'vue'
 import NavHeader from '../../components/NavHeader.vue'
 import FullPageScroll from '../../components/FullPageScroll.vue'
 
@@ -8,20 +8,22 @@ import SkillsSection from "./SkillsSection.vue"
 import ProjectSection from "./ProjectSection.vue"
 import AboutSection from './AboutSection.vue'
 import ContactSection from './ContactSection.vue'
-
-const emit = defineEmits(['update-home-section'])
+import { useRoute, useRouter } from 'vue-router'
 
 // number of sections (no other use)
 const sections = ref([1, 2, 3, 4])
+const isMobile = inject('isMobile')
 
+const emit = defineEmits(['update-home-section'])
 function getSectionNumber(num) {
   emit('update-home-section', num)
 }
 </script>
 
 <template>
-  <!-- <nav-header :float="curSection !== 0 && !isMobile" /> -->
-  <full-page-scroll :sections="sections" :sendSectionNumber="getSectionNumber">
+
+  <full-page-scroll :isMobile="isMobile" :sections="sections"
+    :sendSectionNumber="getSectionNumber">
     <template #section-0>
       <HeroSection />
     </template>

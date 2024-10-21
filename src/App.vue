@@ -1,23 +1,24 @@
 <script lang="ts" setup>
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, onUnmounted, provide, ref } from 'vue'
 import NavHeader from './components/NavHeader.vue';
 
 const homeSection = ref(0)
 const isMobile = ref(false)
-let mediaQuery = null
+provide('isMobile', isMobile)
+let mediaQuery: MediaQueryList | null = null
 
 function updateHomeSection(sectionNumber: number) {
   homeSection.value = sectionNumber
 }
 
-function checkMobile(e) {
+function checkMobile(e: MediaQueryListEvent) {
   isMobile.value = e.matches
 }
 
 onMounted(() => {
   mediaQuery = window.matchMedia('(max-width: 39.3975em)');
-  checkMobile(mediaQuery);
   mediaQuery.addEventListener('change', checkMobile);
+  isMobile.value = mediaQuery.matches
 });
 
 onUnmounted(() => {
@@ -28,6 +29,6 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <nav-header :float="homeSection !== 0" />
+  <nav-header :float="!isMobile && homeSection !== 0" />
   <router-view @update-home-section="updateHomeSection"></router-view>
 </template>

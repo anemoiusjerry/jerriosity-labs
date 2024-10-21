@@ -3,7 +3,7 @@ import { onMounted, onUnmounted, ref } from 'vue'
 import TimelineCard from '../../components/TimelineCard.vue';
 import { ProjectInfo } from '../../interfaces.ts';
 
-const resPath = '/public/projects'
+const resPath = '/projects'
 const projects = ref<ProjectInfo[]>([
   {
     title: 'Streamwise D.I.',
