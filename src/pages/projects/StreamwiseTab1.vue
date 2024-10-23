@@ -3,13 +3,32 @@ import FlipCard from '../../components/FlipCard.vue';
 import DesktopMock from '../../components/DesktopMock.vue';
 import MobileMock from '../../components/MobileMock.vue';
 import StickyNote from '../../components/StickyNote.vue';
+import { inject, onMounted, onUnmounted, Ref, ref } from 'vue';
+
+const isMobile: Ref<number> | undefined = inject('isMobile')
+const mockScale = ref(1)
+
+function calcMockSize() {
+  if (isMobile !== undefined && isMobile.value) {
+    mockScale.value = 0.6
+  }
+}
+
+onMounted(() => {
+  calcMockSize()
+  window.addEventListener('resize', calcMockSize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', calcMockSize)
+})
 </script>
 
 <template>
   <div class="flex flex-col items-center">
-    <div class="vertical">
-      <div class="float-left me-10">
-        <desktop-mock :size="0.6" imageUrl="/projects/streamwise/report-desktop.png" />
+    <div class="vertical my-5">
+      <div class="float-left me-14 margin-mobile">
+        <desktop-mock :size="0.8 * mockScale" imageUrl="/projects/streamwise/report-desktop.png" />
       </div>
 
       <h5>Automated Reporting</h5>
@@ -21,10 +40,9 @@ import StickyNote from '../../components/StickyNote.vue';
       </p>
       <br>
       <b>1. Clients setup report configurations using the web portal.</b>
-
     </div>
 
-    <ol class="workflow-list mt-5 divide-light-gray">
+    <ol class="workflow-list my-5 divide-light-gray">
       <li class="items-center block p-3 hover:bg-white dark:hover:bg-light-gray">
         <div class="flex">
           <img class="w-12 h-12 mb-3 me-3" src="/brands/azure-functions.svg" alt="azure func icon" />
@@ -76,7 +94,7 @@ import StickyNote from '../../components/StickyNote.vue';
       </li>
     </ol>
 
-    <h5 class="mt-20">Architecture Redesign</h5>
+    <h5 class="my-10">Architecture Redesign</h5>
     <p>
       My main achievement in the Systems Engineer position however, is the complete architectural redesign of the edge
       device software. It is the heart of the Streamwise offering being the IoT device that handles all interactions
@@ -90,7 +108,7 @@ import StickyNote from '../../components/StickyNote.vue';
       classes:
     </p>
 
-    <div class="flex">
+    <div class="flex flex-wrap">
       <flip-card frontClass="h-40 w-52 rounded-xl" backClass="h-40 w-52 rounded-xl p-10">
         <template #front-face>
           <div class="flex flex-col">
@@ -128,10 +146,10 @@ import StickyNote from '../../components/StickyNote.vue';
         text="All of this can be setup remotely via the web portal or the mobile app. Live data readings can be streamed to aid with real-time diagnosis." />
 
       <div class="flex items-end flex-shrink-0">
-        <mobile-mock :size="0.3" imageUrl="/projects/streamwise/signals-mobile.png"
+        <mobile-mock :size="0.3 * mockScale" imageUrl="/projects/streamwise/signals-mobile.png"
           class="z-10 absolute start-[50px]" />
         <div>
-          <desktop-mock :size="0.8" imageUrl="/projects/streamwise/signals-desktop.png"/>
+          <desktop-mock :size="0.8 * mockScale" imageUrl="/projects/streamwise/signals-desktop.png" />
         </div>
       </div>
     </div>
@@ -167,9 +185,17 @@ import StickyNote from '../../components/StickyNote.vue';
 
 .sticky-note {
   margin-right: 20px;
+
   @include breakpoint-down(small) {
     margin-right: 0px;
     margin-bottom: 50px;
+  }
+}
+
+.margin-mobile {
+  @include breakpoint-down(small) {
+    margin-right: 0;
+    margin-bottom: 2em;
   }
 }
 </style>

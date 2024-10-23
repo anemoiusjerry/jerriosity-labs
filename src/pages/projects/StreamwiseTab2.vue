@@ -18,8 +18,8 @@ import FlipCard from '../../components/FlipCard.vue';
     </p>
 
     <div class="my-12 text-2xl font-bold text-center">Solution?</div>
-    <div class="flex justify-center">
-      <div class="flex">
+    <div class="vertical flex justify-center">
+      <div class="vertical flex">
         <div>
           <flip-card frontClass="p-7 rounded-2xl" backClass="p-7 rounded-2xl" class="mr-3">
             <template #front-face>
@@ -38,7 +38,7 @@ import FlipCard from '../../components/FlipCard.vue';
           </flip-card>
         </div>
 
-        <div class="border-[1px] w-14 h-0 mt-24"></div>
+        <div class="hide-for-mobile border-[1px] w-14 h-0 mt-24"></div>
 
         <div class="flex flex-col items-center">
           <flip-card frontClass="p-10 rounded-3xl" backClass="p-10 rounded-3xl" class="m-3">
@@ -54,7 +54,7 @@ import FlipCard from '../../components/FlipCard.vue';
             </template>
           </flip-card>
 
-          <div class="border-[1px] w-0 h-14"></div>
+          <div class="hide-for-mobile border-[1px] w-0 h-14"></div>
 
           <flip-card frontClass="p-7 rounded-2xl" backClass="p-7 rounded-2xl" class="mt-3 mr-12">
             <template #front-face>
@@ -74,7 +74,7 @@ import FlipCard from '../../components/FlipCard.vue';
 
       <font-awesome-icon icon="fa-solid fa-plus" size="xl" class="mt-28 mx-8" />
 
-      <div class="flex">
+      <div class="vertical flex">
         <div class="flex flex-col items-center">
           <flip-card frontClass="p-10 rounded-3xl" backClass="p-10 rounded-3xl" class="m-3">
             <template #front-face>
@@ -91,7 +91,7 @@ import FlipCard from '../../components/FlipCard.vue';
             </template>
           </flip-card>
 
-          <div class="border-[1px] w-0 h-14"></div>
+          <div class="hide-for-mobile border-[1px] w-0 h-14"></div>
 
           <flip-card frontClass="p-7 rounded-2xl" backClass="p-7 rounded-2xl" class="m-3">
             <template #front-face>
@@ -108,7 +108,7 @@ import FlipCard from '../../components/FlipCard.vue';
           </flip-card>
         </div>
 
-        <div class="border-[1px] w-14 h-0 mt-32"></div>
+        <div class="hide-for-mobile border-[1px] w-14 h-0 mt-32"></div>
 
         <div>
           <flip-card frontClass="p-7 rounded-2xl" backClass="p-7 rounded-2xl" class="ml-3">
@@ -142,7 +142,15 @@ import FlipCard from '../../components/FlipCard.vue';
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+.vertical {
+  @include breakpoint-down(small) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .arrow-left {
   width: 0;
   height: 0;
