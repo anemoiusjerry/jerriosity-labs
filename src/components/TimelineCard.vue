@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import {reactive} from 'vue'
+import { reactive } from 'vue'
 import { ProjectInfo } from '../interfaces';
+import FlipCard from './FlipCard.vue';
+import { height } from '@fortawesome/free-brands-svg-icons/fa42Group';
 
 const props = defineProps<{
   project: ProjectInfo,
@@ -8,31 +10,51 @@ const props = defineProps<{
   hideLineRight: Boolean
 }>()
 
-const cardFrontStyle = reactive({
+const frontfaceStyle = reactive({
+  height: '18em',
+  width: '13em',
+  borderRadius: '1em',
+  borderWidth: '3px',
   backgroundImage: `url("${props.project.image}")`,
   backgroundSize: 'cover'
+})
+
+const backfaceStyle = reactive({
+  height: '18em',
+  width: '13em',
+  borderRadius: '1em',
+  borderWidth: '3px',
+  display: 'flex',
+  flexDirection: 'column' as 'column',
+  justifyContent: 'space-between',
+  transform: 'rotateY(-180deg)',
+  position: 'absolute' as 'absolute',
+  top: 0,
+  bottom: 0,
+  left: 0,
+  right: 0,
+  padding: '1.5em'
 })
 </script>
 
 <template>
+  <!-- timeline card -->
   <li>
-    <!-- timeline card -->
-    <div class="card m-8 flex justify-center">
-      <div class="card-body">
-        <div class="card-front" :style="cardFrontStyle">
+    <flip-card frontClass="border-dark-gray" :frontStyle="frontfaceStyle" :backStyle="backfaceStyle">
+      <template #front-face>
+        <div>
         </div>
-
-        <div class="card-back bg-white dark:bg-light-gray">
-          <div>
-            <span class="mb-2 text-lg font-bold">{{ props.project.title }}</span>
-            <p class="font-normal block text-dark-gray dark:text-off-white">{{ props.project.summary }}</p>
-          </div>
-          <router-link :to="props.project.link" class="text-left">
-            Learn More <font-awesome-icon icon="fa-solid fa-angle-right"/>
-          </router-link>
+      </template>
+      <template #back-face>
+        <div>
+          <span class="mb-2 text-lg font-bold">{{ props.project.title }}</span>
+          <p class="font-normal block text-dark-gray dark:text-off-white">{{ props.project.summary }}</p>
         </div>
-      </div>
-    </div>
+        <router-link :to="props.project.link" class="text-left">
+          Learn More <font-awesome-icon icon="fa-solid fa-angle-right" />
+        </router-link>
+      </template>
+    </flip-card>
 
     <div class="flex items-center">
       <div class="w-full bg-dark-gray dark:bg-off-white" :class="hideLineLeft ? 'h-0' : 'h-0.5'"></div>
@@ -63,7 +85,8 @@ const cardFrontStyle = reactive({
   }
 }
 
-.card-front, .card-back {
+.card-front,
+.card-back {
   backface-visibility: hidden;
   height: 18em;
   width: 13em;
@@ -72,8 +95,9 @@ const cardFrontStyle = reactive({
   border: 3px solid $darkGray;
 }
 
-body.dark .card-front, body.dark .card-back {
-    border-color: $offWhite;
+body.dark .card-front,
+body.dark .card-back {
+  border-color: $offWhite;
 }
 
 .card-back {
@@ -82,7 +106,10 @@ body.dark .card-front, body.dark .card-back {
   justify-content: space-between;
   transform: rotateY(-180deg);
   position: absolute;
-  top: 0; bottom: 0; left: 0; right: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: 1.5em;
 }
 </style>

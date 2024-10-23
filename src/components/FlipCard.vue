@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CSSProperties } from 'vue'
+import { CSSProperties, inject, ref, watch } from 'vue'
 
 const props = defineProps<{
   frontStyle?: CSSProperties,
@@ -7,10 +7,16 @@ const props = defineProps<{
   frontClass?: string,
   backClass?: string
 }>()
+
+const isActive = ref(false)
+function toggleCard(flip: boolean) {
+  isActive.value = flip
+}
 </script>
 
 <template>
-  <div class="card m-8 flex justify-center">
+  <div class="card m-8 flex justify-center" :class="isActive && 'active'" 
+  @click="() => toggleCard(!isActive)" @mouseenter="() => toggleCard(true)" @mouseleave="() => toggleCard(false)">
     <div class="card-body">
       <!-- front face -->
       <div class="card-front shadow-lg bg-white dark:bg-light-gray" :class="props.frontClass" :style="props.frontStyle">
@@ -33,7 +39,7 @@ const props = defineProps<{
   transition: transform 1s;
   transform-style: preserve-3d;
 
-  .card:hover & {
+  .card.active & {
     transform: rotateY(-180deg);
   }
 }
