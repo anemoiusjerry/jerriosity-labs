@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CSSProperties, inject, ref, watch } from 'vue'
+import { CSSProperties, ref } from 'vue'
 
 const props = defineProps<{
   frontStyle?: CSSProperties,

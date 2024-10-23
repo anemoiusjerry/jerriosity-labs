@@ -2,7 +2,6 @@
 import { reactive } from 'vue'
 import { ProjectInfo } from '../interfaces';
 import FlipCard from './FlipCard.vue';
-import { height } from '@fortawesome/free-brands-svg-icons/fa42Group';
 
 const props = defineProps<{
   project: ProjectInfo,
