@@ -16,22 +16,25 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="flex flex-col items-center p-36">
-    <type-text-area text='< Jerriosity Labs />' class="text-2xl" />
-    <a data-popover-target="popover-default" data-popover-placement="right" class="mb-10"
-      href="https://github.com/anemoiusjerry/jerriosity-labs" target="_blank">
-      <font-awesome-icon icon="fa-solid fa-laptop-code" size="lg" />
-    </a>
+  <div class="project-page flex flex-col items-center">
+    <type-text-area text='< Jerriosity Labs />' class="type-title" />
+    <div>
+      <a href="https://jerriositylabs.com" class="hover:underline me-4">https://jerriositylabs.com</a>
+      <a data-popover-target="popover-default" data-popover-placement="right"
+        href="https://github.com/anemoiusjerry/jerriosity-labs" target="_blank">
+        <font-awesome-icon icon="fa-solid fa-laptop-code" size="lg" />
+      </a>
 
-    <div data-popover id="popover-default" role="tooltip"
-      class="absolute z-10 invisible inline-block text-sm transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:border-gray-600 dark:bg-light-gray">
-      <div class="px-3 py-2">
-        <p>See code on GitHub</p>
+      <div data-popover id="popover-default" role="tooltip"
+        class="absolute z-10 invisible inline-block text-sm transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 dark:border-gray-600 dark:bg-light-gray">
+        <div class="px-3 py-2">
+          <p>See code on GitHub</p>
+        </div>
+        <div data-popper-arrow></div>
       </div>
-      <div data-popper-arrow></div>
     </div>
 
-    <p>
+    <p class="my-10">
       Started out as a passion project to learn Vue3 but then turned into a fully fledged portfolio website. I designed
       the entire thing myself including the logo. The styling is done is using Tailwind CSS, giving much more
       customisation
@@ -39,10 +42,11 @@ onUnmounted(() => {
       javascript functionalities and animation myself.
     </p>
 
-    <div class="flex items-center my-10">
-      <img src="/jlabs-logo-outline.svg" width="250" class="m-5" />
-      <img src="/jlabs-logo.svg" width="250" class="m-5" />
-      <p class="">
+    <div class="vertical items-center mb-10">
+      <img src="/jlabs-logo-outline.svg" class="m-5 max-w-44" />
+      <img src="/jlabs-logo.svg" class="m-5 max-w-44" />
+
+      <p class="ms-10">
         The name came about from combining my name with curioisty and development labs, shortened to Jerrisoity Labs.
         <br><br>
         I wanted the logo to resemble a chemist flask but also references to coding. Thus I cut the flask in half
@@ -59,3 +63,13 @@ onUnmounted(() => {
       text="So give my website a whirl! If you like what you see, why not reach out and flick me a message?" />
   </div>
 </template>
+
+<style lang="scss" scoped>
+.vertical {
+  display: flex;
+
+  @include breakpoint-down(small) {
+    flex-direction: column;
+  }
+}
+</style>

@@ -2,11 +2,36 @@
 import TypeTextArea from '../../components/TypeTextArea.vue';
 import FlipCard from '../../components/FlipCard.vue';
 import DesktopMock from '../../components/DesktopMock.vue';
+import { inject, onMounted, onUnmounted, Ref, ref } from 'vue';
+
+const isMobile:Ref<number> | undefined = inject('isMobile')
+const mockScale = ref(2)
+
+function calcMockSize() {
+  if (isMobile !== undefined && isMobile.value) {
+    mockScale.value = 0.5
+  }
+  else {
+    const windowSize = window.innerWidth
+    const screenSize = screen.width
+    // works for desktops only
+    mockScale.value = 2 * (windowSize / screenSize)
+  }
+}
+
+onMounted(() => {
+  calcMockSize()
+  window.addEventListener('resize', calcMockSize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', calcMockSize)
+})
 </script>
 
 <template>
-  <div class="flex flex-col items-center p-36">
-    <type-text-area text='< Rhombus AI />' class="text-2xl" />
+  <div class="project-page flex flex-col items-center">
+    <type-text-area text='< Rhombus AI />' class="type-title" />
     <div>
       <a href="https://rhombusai.com" class="hover:underline me-4" target="_blank">https://rhombusai.com</a>
 
@@ -30,26 +55,27 @@ import DesktopMock from '../../components/DesktopMock.vue';
       for the columns making subsequent data cleaning easier. Key is to ensure scalability to very large datasets.
     </p>
 
-    <div class="grid grid-cols-2 gap-x-10">
+    <div class="vertical-2-col">
       <p>
         The Pandas dataframe is the preferred structure to handle most ML datasets. However it often reads data in as
         string type which isn't so helpful. The possible Pandas types are string, float, complex number, boolean,
         datetime and categorical. Floats are the easiest to detect by simply trying type conversion, then bools etc.
         If all other types fail the default is then string.
       </p>
+
       <div class="text-dark-gray dark:text-off-white">
         <span class="font-bold">Some considerations:</span>
         <ul>
-          <li class="flex items-center">
-            <div class="h-2 w-2 rotate-45 mx-3 bg-blood-orange dark:bg-sky-blue"></div>
+          <li class="flex items-center mb-2">
+            <div class="bullet"></div>
             Prevent over classification to categorical class
           </li>
-          <li class="flex items-center">
-            <div class="h-2 w-2 rotate-45 mx-3 bg-blood-orange dark:bg-sky-blue"></div>
+          <li class="flex items-center mb-2">
+            <div class="bullet"></div>
             Parsing different date-time formats (eg day month swap is tricky)
           </li>
           <li class="flex items-center">
-            <div class="h-2 w-2 rotate-45 mx-3 bg-blood-orange dark:bg-sky-blue"></div>
+            <div class="bullet"></div>
             Parsing different number formats ("," vs ".")
           </li>
         </ul>
@@ -69,7 +95,7 @@ import DesktopMock from '../../components/DesktopMock.vue';
       my pipeline:
     </p>
 
-    <div class="flex">
+    <div class="flex flex-wrap">
       <flip-card frontClass="h-40 w-40 rounded-xl" backClass="h-40 w-40 rounded-xl p-5">
         <template #front-face>
           <div class="flex flex-col items-center">
@@ -149,7 +175,34 @@ import DesktopMock from '../../components/DesktopMock.vue';
     </p>
 
     <div>
-      <desktop-mock imageUrl="/projects/rhombus/home.png" :size="2" />
+      <desktop-mock imageUrl="/projects/rhombus/home.png" :size="mockScale" />
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.bullet {
+  flex-shrink: 0;
+  height: 8px;
+  width: 8px;
+  transform: rotate(45deg);
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: $bloodOrange;
+}
+body.dark .bullet {
+  background-color: $skyBlue;
+}
+
+.vertical-2-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 3em;
+
+  @include breakpoint-down(small) {
+    grid-template-columns: none;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    row-gap: 2em;
+  }
+}
+</style>

@@ -18,10 +18,11 @@ function checkMobile(e: MediaQueryListEvent) {
 }
 
 function floatNavBar() {
-  if (isMobile.value) {
+  const isHomePage = route().path === '/'
+  if (isMobile.value || !isHomePage) {
     return false
   }
-  return !(route().path === '/' && homeSection.value === 0)
+  return !(isHomePage && homeSection.value === 0)
 }
 
 onMounted(() => {

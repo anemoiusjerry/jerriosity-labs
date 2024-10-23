@@ -7,10 +7,11 @@ import StickyNote from '../../components/StickyNote.vue';
 
 <template>
   <div class="flex flex-col items-center">
-    <div>
+    <div class="vertical">
       <div class="float-left me-10">
         <desktop-mock :size="0.6" imageUrl="/projects/streamwise/report-desktop.png" />
       </div>
+
       <h5>Automated Reporting</h5>
       <p>
         My first project was actually the most difficult one. Tasked with creating a fully automated, customisable
@@ -20,9 +21,10 @@ import StickyNote from '../../components/StickyNote.vue';
       </p>
       <br>
       <b>1. Clients setup report configurations using the web portal.</b>
+
     </div>
 
-    <ol class="grid grid-cols-4 mt-5 divide-x divide-light-gray">
+    <ol class="workflow-list mt-5 divide-light-gray">
       <li class="items-center block p-3 hover:bg-white dark:hover:bg-light-gray">
         <div class="flex">
           <img class="w-12 h-12 mb-3 me-3" src="/brands/azure-functions.svg" alt="azure func icon" />
@@ -34,7 +36,7 @@ import StickyNote from '../../components/StickyNote.vue';
         </p>
       </li>
 
-      <li class="items-center block p-3 hover:bg-white dark:hover:bg-light-gray">
+      <li class="divider items-center block p-3 hover:bg-white dark:hover:bg-light-gray">
         <div class="flex">
           <img class="w-12 h-12 mb-3 me-3" src="/brands/azure-queue-storage.png" alt="azure queue storage icon" />
           <span class="font-medium text-dark-gray dark:text-off-white">3. Queue Service</span>
@@ -47,7 +49,7 @@ import StickyNote from '../../components/StickyNote.vue';
         </p>
       </li>
 
-      <li class="items-center block p-3 hover:bg-white dark:hover:bg-light-gray">
+      <li class="divider items-center block p-3 hover:bg-white dark:hover:bg-light-gray">
         <div class="flex">
           <img class="w-12 h-12 mb-3 me-3" src="/brands/azure-functions.svg" alt="azure func icon" />
           <span class="font-medium text-dark-gray dark:text-off-white">4. Http serverless functions</span>
@@ -61,7 +63,7 @@ import StickyNote from '../../components/StickyNote.vue';
         </p>
       </li>
 
-      <li class="items-center block p-3 hover:bg-white dark:hover:bg-light-gray">
+      <li class="divider items-center block p-3 hover:bg-white dark:hover:bg-light-gray">
         <div class="flex">
           <img class="w-12 h-12 mb-3 me-3" src="/brands/azure-web-jobs.svg" alt="azure app service icon" />
           <span class="font-medium text-dark-gray dark:text-off-white">5. HTML to PDF</span>
@@ -121,13 +123,53 @@ import StickyNote from '../../components/StickyNote.vue';
       equipment, and the mixing of different protocols all within the edge device.
     </p>
 
-    <div class="flex items-end mt-10">
-      <sticky-note class="self-center me-20"
+    <div class="vertical flex mt-10">
+      <sticky-note class="sticky-note self-center"
         text="All of this can be setup remotely via the web portal or the mobile app. Live data readings can be streamed to aid with real-time diagnosis." />
-      <mobile-mock :size="0.3" imageUrl="/projects/streamwise/signals-mobile.png" class="z-10 absolute start-[50px]" />
-      <div class="flex-shrink-0">
-        <desktop-mock :size="0.8" imageUrl="/projects/streamwise/signals-desktop.png" />
+
+      <div class="flex items-end flex-shrink-0">
+        <mobile-mock :size="0.3" imageUrl="/projects/streamwise/signals-mobile.png"
+          class="z-10 absolute start-[50px]" />
+        <div>
+          <desktop-mock :size="0.8" imageUrl="/projects/streamwise/signals-desktop.png"/>
+        </div>
       </div>
     </div>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.vertical {
+  @include breakpoint-down(small) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.workflow-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  @include breakpoint-down(small) {
+    grid-template-columns: none;
+  }
+}
+
+.divider {
+  border-left-width: 1px;
+
+  @include breakpoint-down(small) {
+    border-left-width: 0px;
+    border-top-width: 1px;
+  }
+}
+
+.sticky-note {
+  margin-right: 20px;
+  @include breakpoint-down(small) {
+    margin-right: 0px;
+    margin-bottom: 50px;
+  }
+}
+</style>

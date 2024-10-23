@@ -11,8 +11,8 @@ const setTab = (tab: string) => {
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-center p-36">
-    <type-text-area text='< Streamwise D.I. />' class="text-2xl" />
+  <div id="streamwise-page" class="flex flex-col items-center justify-center">
+    <type-text-area text='< Streamwise D.I. />' class="type-title" />
     <a href="https://streamwisedi.com" class="hover:underline" target="_blank">https://streamwisedi.com</a>
 
     <p class="mt-10">
@@ -62,5 +62,20 @@ body.dark .tab.active {
 .tab-content {
   margin-top: 50px;
   padding: 20px;
+}
+
+#streamwise-page {
+  padding: 9em;
+  @include breakpoint-down(small) {
+    padding: 2.5em;
+  }
+}
+
+.type-title {
+  font-size: x-large;
+  @include breakpoint-down(small) {
+    font-size: large;
+    margin-top: 4em;
+  }
 }
 </style>

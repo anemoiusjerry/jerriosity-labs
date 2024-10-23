@@ -1,15 +1,11 @@
 <script lang="ts" setup>
 import TypeTextArea from '../../components/TypeTextArea.vue';
-//import Carousel from '../../components/Carousel.vue';
-//import { ref } from 'vue';
-
-//const imageUrls = ref(['/projects/rte/rte-app.png', '/projects/rte/rte-settings.png'])
 </script>
 
 <template>
-  <div class="flex flex-col items-center p-36">
-    <type-text-area text='< Restored To Eden />' class="text-2xl" />
-    <div>
+  <div class="project-page flex flex-col items-center">
+    <type-text-area text='< Restored To Eden />' class="type-title" />
+    <div class="mb-5">
       <a class="line-through me-4">www.restoredtoeden.com</a>
       <a data-popover-target="popover-default" data-popover-placement="right"
         href="https://github.com/anemoiusjerry/auto-ingredient-selector" target="_blank">
@@ -25,7 +21,7 @@ import TypeTextArea from '../../components/TypeTextArea.vue';
       </div>
     </div>
 
-    <p class="my-10">
+    <p class="my-5">
       My first freelance job, lasting a bit over one year inclusive of all the post launch support. The client runs a
       bespoke skin care service where a set of creams is crafted from hand selected ingredients based on the skin
       conditions of customers. I was tasked to automate this process by producing the ingredients and their respective
@@ -33,8 +29,9 @@ import TypeTextArea from '../../components/TypeTextArea.vue';
       outside of coding from registering my own business, to drafting scopes of work and handling client complaints.
     </p>
 
-    <div class="flex">
-      <p class="me-10">
+    <div class="my-5">
+      <img src="/projects/rte/user-diagram.png" alt="User flow" class="float-right ms-10 mb-5" />
+      <p>
         I setup many meetings with my client to ensure I fully understand the desired deliverables.
         The crux of this project was a constraint satisfaction problem, and these problems are traditionally
         solved using recursive techniques. My research pointed to a modified version of Knuth's Algorithm X.
@@ -53,12 +50,11 @@ import TypeTextArea from '../../components/TypeTextArea.vue';
         the end result. I also exported the selected ingredients list so the client can more easily analyse the
         program performance.
       </p>
-      <img src="/projects/rte/user-diagram.png" alt="User flow" />
     </div>
 
-    <div class="flex mt-10">
-      <img :src="`/projects/rte/rte-app.png`" width="500" class="mr-10 rounded-lg dark:hidden" />
-      <img :src="`/projects/rte/rte-app-dark.png`" width="500" class="mr-10 rounded-lg hidden dark:block" />
+    <div class="my-5">
+      <img :src="`/projects/rte/rte-app.png`" width="500" class="float-left mr-10 mb-10 rounded-lg dark:hidden" />
+      <img :src="`/projects/rte/rte-app-dark.png`" width="500" class="float-left mr-10 mb-10 rounded-lg hidden dark:block" />
       <p>
         While the excel template method is crude, employing machine learning models would have also been unsuitable due
         to the lack of training data. There just werent enough real orders to sufficiently build a model. Even if a
