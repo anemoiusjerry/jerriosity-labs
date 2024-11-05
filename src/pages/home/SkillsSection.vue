@@ -19,22 +19,34 @@ const frontendCards = [
     exp: "1+ years"
   },
   {
+    imgSrcs: [`${ICON_PATH}/angular.svg`],
+    imgAlt: "angular-icon",
+    title: "Angular",
+    exp: "1+ year"
+  },  
+  {
+    imgSrcs: [`${ICON_PATH}/react-native.svg`],
+    imgAlt: "react-native-icon",
+    title: "R. Native",
+    exp: "3+ years"
+  },
+  {
     imgSrcs: [`${ICON_PATH}/typescript.svg`],
     imgAlt: "ts-icon",
     title: "TypeScript",
     exp: "3+ years"
   },
   {
-    imgSrcs: [`${ICON_PATH}/tailwind.svg`],
-    imgAlt: "tailwind-icon",
-    title: "Tailwind CSS",
-    exp: "1+ years"
-  },
-  {
     imgSrcs: [`${ICON_PATH}/bootstrap.svg`],
     imgAltz: "bootstrap-icon",
     title: "Bootstrap",
     exp: "4+ years"
+  },
+  {
+    imgSrcs: [`${ICON_PATH}/tailwind.svg`],
+    imgAlt: "tailwind-icon",
+    title: "Tailwind CSS",
+    exp: "1+ years"
   }
 ]
 
@@ -77,13 +89,7 @@ const otherCards = [
     imgAlt: 'mysql-icon',
     title: 'MySQL',
     exp: '5+ years'
-  },
-  {
-    imgSrcs: [`${ICON_PATH}/react-native.svg`],
-    imgAlt: "react-native-icon",
-    title: "React Native",
-    exp: "3+ years"
-  },
+  }
 ]
 
 onMounted(() => {
