@@ -10,7 +10,7 @@ import StickyNote from '../../components/StickyNote.vue';
           <div class="flex-for-mobile flex justify-between">
             <h4 class="mr-5 font-bold">About Me</h4>
             <sticky-note class="text-lg tracking-tight font-bold" text="Chinese born, New Zealand raised. 
-            Australian trained, Serbia based." />
+            Australia based." />
           </div>
           <p class="mt-4 text-justify text-dark-gray dark:text-off-white">
             I was born in northeastern China, next to the capital Beijing. At the age of 7, my parents whisked me away
@@ -19,7 +19,7 @@ import StickyNote from '../../components/StickyNote.vue';
             computer science at the University of Melbourne made me very good at integrating hardware with software.
             This landed me my first job at an industrial IoT startup. I slowly transitioned to remote work, taking small
             freelance jobs and travelling the world while I'm at it!
-            <br><br>Current location: <b>Serbia</b> 🇷🇸.
+            <br><br>Current location: <b>New Zealand</b> 🇳🇿.
           </p>
         </div>
 
