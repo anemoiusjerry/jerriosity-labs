@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, CSSProperties, reactive } from 'vue'
+import { computed, CSSProperties } from 'vue'
 import { ProjectInfo } from '../interfaces';
 import FlipCard from './FlipCard.vue';
 
