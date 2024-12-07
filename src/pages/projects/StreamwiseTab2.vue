@@ -21,7 +21,7 @@ import FlipCard from '../../components/FlipCard.vue';
     <div class="vertical flex justify-center">
       <div class="vertical flex">
         <div>
-          <flip-card frontClass="p-7 rounded-2xl" backClass="p-7 rounded-2xl" class="mr-3">
+          <flip-card frontClass="p-7 rounded-2xl" backClass="p-7 rounded-2xl" class="m-8 mr-3">
             <template #front-face>
               <div class="grid grid-cols-2 grid-rows-2 gap-x-3 gap-y-1">
                 <font-awesome-icon icon="fa-solid fa-hard-drive" size="3x" />
@@ -56,7 +56,7 @@ import FlipCard from '../../components/FlipCard.vue';
 
           <div class="hide-for-mobile border-[1px] w-0 h-14"></div>
 
-          <flip-card frontClass="p-7 rounded-2xl" backClass="p-7 rounded-2xl" class="mt-3 mr-12">
+          <flip-card frontClass="p-7 rounded-2xl" backClass="p-7 rounded-2xl" class="m-8 mt-3 mr-12">
             <template #front-face>
               <div class="text-center">
                 <img src="/brands/azure-Container-Registries.svg" alt="docker logo" width="100" />
@@ -111,7 +111,7 @@ import FlipCard from '../../components/FlipCard.vue';
         <div class="hide-for-mobile border-[1px] w-14 h-0 mt-32"></div>
 
         <div>
-          <flip-card frontClass="p-7 rounded-2xl" backClass="p-7 rounded-2xl" class="ml-3">
+          <flip-card frontClass="p-7 rounded-2xl" backClass="p-7 rounded-2xl" class="ml-3 m-8">
             <template #front-face>
               <div class="text-center">
                 <img src="/brands/azure-IoT-Hub.svg" alt="iot edge logo" width="100" />

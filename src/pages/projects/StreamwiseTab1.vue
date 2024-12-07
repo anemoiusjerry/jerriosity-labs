@@ -109,7 +109,7 @@ onUnmounted(() => {
     </p>
 
     <div class="flex flex-wrap">
-      <flip-card frontClass="h-40 w-52 rounded-xl" backClass="h-40 w-52 rounded-xl p-10">
+      <flip-card class="m-8" frontClass="h-40 w-52 rounded-xl" backClass="h-40 w-52 rounded-xl p-10">
         <template #front-face>
           <div class="flex flex-col">
             <font-awesome-icon icon="fa-solid fa-temperature-half" size="2xl"
@@ -122,7 +122,7 @@ onUnmounted(() => {
         </template>
       </flip-card>
 
-      <flip-card frontClass="h-40 w-52 rounded-xl" backClass="h-40 w-52 rounded-xl p-10">
+      <flip-card class="m-8" frontClass="h-40 w-52 rounded-xl" backClass="h-40 w-52 rounded-xl p-10">
         <template #front-face>
           <div class="flex flex-col">
             <font-awesome-icon icon="fa-solid fa-fan" size="2xl" class="text-blood-orange dark:text-sky-blue mb-2" />

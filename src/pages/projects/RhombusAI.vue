@@ -96,7 +96,7 @@ onUnmounted(() => {
     </p>
 
     <div class="flex flex-wrap">
-      <flip-card frontClass="h-40 w-40 rounded-xl" backClass="h-40 w-40 rounded-xl p-5">
+      <flip-card class="m-8" frontClass="h-40 w-40 rounded-xl" backClass="h-40 w-40 rounded-xl p-5">
         <template #front-face>
           <div class="flex flex-col items-center">
             <font-awesome-icon icon="fa-solid fa-sitemap" size="2xl"
@@ -109,7 +109,7 @@ onUnmounted(() => {
         </template>
       </flip-card>
 
-      <flip-card frontClass="h-40 w-40 rounded-xl" backClass="h-40 w-40 rounded-xl p-5">
+      <flip-card class="m-8" frontClass="h-40 w-40 rounded-xl" backClass="h-40 w-40 rounded-xl p-5">
         <template #front-face>
           <div class="flex flex-col items-center">
             <font-awesome-icon icon="fa-solid fa-magnifying-glass" size="2xl"
@@ -122,7 +122,7 @@ onUnmounted(() => {
         </template>
       </flip-card>
 
-      <flip-card frontClass="h-40 w-40 rounded-xl" backClass="h-40 w-40 rounded-xl p-5">
+      <flip-card class="m-8" frontClass="h-40 w-40 rounded-xl" backClass="h-40 w-40 rounded-xl p-5">
         <template #front-face>
           <div class="flex flex-col items-center">
             <font-awesome-icon icon="fa-solid fa-plus" size="2xl" class="text-blood-orange dark:text-sky-blue mb-2" />
@@ -134,7 +134,7 @@ onUnmounted(() => {
         </template>
       </flip-card>
 
-      <flip-card frontClass="h-40 w-40 rounded-xl" backClass="h-40 w-40 rounded-xl p-5">
+      <flip-card class="m-8" frontClass="h-40 w-40 rounded-xl" backClass="h-40 w-40 rounded-xl p-5">
         <template #front-face>
           <div class="flex flex-col items-center">
             <font-awesome-icon icon="fa-solid fa-chart-pie" size="2xl"
@@ -147,7 +147,7 @@ onUnmounted(() => {
         </template>
       </flip-card>
 
-      <flip-card frontClass="h-40 w-40 rounded-xl" backClass="h-40 w-40 rounded-xl p-5">
+      <flip-card class="m-8" frontClass="h-40 w-40 rounded-xl" backClass="h-40 w-40 rounded-xl p-5">
         <template #front-face>
           <div class="flex flex-col items-center">
             <font-awesome-icon icon="fa-solid fa-layer-group" size="2xl"

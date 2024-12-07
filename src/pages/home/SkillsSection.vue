@@ -18,18 +18,12 @@ const frontendCards = [
     title: "Vue.js",
     exp: "1+ years"
   },
-  {
-    imgSrcs: [`${ICON_PATH}/angular.svg`],
-    imgAlt: "angular-icon",
-    title: "Angular",
-    exp: "1+ year"
-  },  
-  {
-    imgSrcs: [`${ICON_PATH}/react-native.svg`],
-    imgAlt: "react-native-icon",
-    title: "R. Native",
-    exp: "3+ years"
-  },
+  // {
+  //   imgSrcs: [`${ICON_PATH}/angular.svg`],
+  //   imgAlt: "angular-icon",
+  //   title: "Angular",
+  //   exp: "1+ year"
+  // },  
   {
     imgSrcs: [`${ICON_PATH}/typescript.svg`],
     imgAlt: "ts-icon",
@@ -61,13 +55,13 @@ const backendCards = [
     imgSrcs: [`${ICON_PATH}/django.svg`],
     imgAlt: "django-icon",
     title: "Django",
-    exp: "3+ years"
+    exp: "2+ years"
   },
   {
     imgSrcs: [`${ICON_PATH}/nodejs.svg`],
     imgAlt: "nodejs-icon",
     title: "Node.js",
-    exp: "2+ years"
+    exp: "1+ years"
   }
 ]
 
@@ -85,10 +79,16 @@ const otherCards = [
     exp: "5+ years"
   },
   {
-    imgSrcs: [`${ICON_PATH}/mysql.svg`],
-    imgAlt: 'mysql-icon',
-    title: 'MySQL',
+    imgSrcs: [`${ICON_PATH}/msss.svg`],
+    imgAlt: 'sqlserver-icon',
+    title: 'SQL Server',
     exp: '5+ years'
+  },
+  {
+    imgSrcs: [`${ICON_PATH}/react-native.svg`],
+    imgAlt: "react-native-icon",
+    title: "R. Native",
+    exp: "3+ years"
   }
 ]
 

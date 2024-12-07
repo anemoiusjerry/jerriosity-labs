@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { computed, CSSProperties, reactive } from 'vue'
 import { ProjectInfo } from '../interfaces';
 import FlipCard from './FlipCard.vue';
 
@@ -9,20 +9,22 @@ const props = defineProps<{
   hideLineRight: Boolean
 }>()
 
-const frontfaceStyle = reactive({
+const cardStyle: CSSProperties = {
   height: '18em',
   width: '13em',
   borderRadius: '1em',
   borderWidth: '3px',
+  margin: '1.5em'
+}
+
+const frontfaceStyle = computed<CSSProperties>(() => ({
+  ...cardStyle,
   backgroundImage: `url("${props.project.image}")`,
   backgroundSize: 'cover'
-})
+}))
 
-const backfaceStyle = reactive({
-  height: '18em',
-  width: '13em',
-  borderRadius: '1em',
-  borderWidth: '3px',
+const backfaceStyle = computed<CSSProperties>(() => ({
+  ...cardStyle,
   display: 'flex',
   flexDirection: 'column' as 'column',
   justifyContent: 'space-between',
@@ -33,13 +35,14 @@ const backfaceStyle = reactive({
   left: 0,
   right: 0,
   padding: '1.5em'
-})
+}))
 </script>
 
 <template>
   <!-- timeline card -->
   <li>
-    <flip-card frontClass="border-dark-gray" :frontStyle="frontfaceStyle" :backStyle="backfaceStyle">
+    <flip-card frontClass="border-dark-gray" backClass="border-dark-gray" 
+    :frontStyle="frontfaceStyle" :backStyle="backfaceStyle">
       <template #front-face>
         <div>
         </div>

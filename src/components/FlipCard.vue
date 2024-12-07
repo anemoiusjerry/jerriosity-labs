@@ -9,13 +9,14 @@ const props = defineProps<{
 }>()
 
 const isActive = ref(false)
+
 function toggleCard(flip: boolean) {
   isActive.value = flip
 }
 </script>
 
 <template>
-  <div class="card m-8 flex justify-center" :class="isActive && 'active'" 
+  <div class="card flex justify-center" :class="isActive && 'active'" 
   @click="() => toggleCard(!isActive)" @mouseenter="() => toggleCard(true)" @mouseleave="() => toggleCard(false)">
     <div class="card-body">
       <!-- front face -->

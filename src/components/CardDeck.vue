@@ -1,6 +1,7 @@
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
-import SkillCard from './SkillCard.vue'
+import { ref, onMounted, onUnmounted, reactive } from 'vue'
+import FlipCard from './FlipCard.vue';
+import { height, width } from '@fortawesome/free-brands-svg-icons/fa42Group';
 
 const props = defineProps({
   scrollThreshold: {
@@ -10,11 +11,18 @@ const props = defineProps({
   cardProps: Array,
 })
 
+const skillCardProps = reactive({
+  width: '8em',
+  padding: '1.5em', 
+  borderRadius: '0.7em', 
+  flexDirection: 'column',
+  margin: '0.5em'
+})
+
 const scrollRef = ref(null)
 const deckWidth = ref(0)
 
 onMounted(() => {
-  deckWidth.value = 3 * getCardWidth()
   window.addEventListener('resize', resizeDeck)
   resizeDeck()
 })
@@ -23,7 +31,9 @@ onUnmounted(() => {
 })
 
 function scrollLeft() {
-  const cardWidth = getCardWidth()
+  const fontSize = parseFloat(getComputedStyle(scrollRef.value).fontSize)
+  const cardWidth = getCardWidth() * fontSize
+  //console.log(cardWidth)
   scrollRef.value.scrollBy({
     left: -cardWidth,
     behavior: 'smooth'
@@ -31,7 +41,8 @@ function scrollLeft() {
 }
 
 function scrollRight() {
-  const cardWidth = getCardWidth()
+  const fontSize = parseFloat(getComputedStyle(scrollRef.value).fontSize)
+  const cardWidth = getCardWidth() * fontSize
   scrollRef.value.scrollBy({
     left: cardWidth,
     behavior: 'smooth'
@@ -39,9 +50,9 @@ function scrollRight() {
 }
 
 function getCardWidth() {
-  const cardElmt = scrollRef.value.querySelector('.card')
-  const cardStyle = getComputedStyle(cardElmt)
-  return cardElmt.offsetWidth + parseInt(cardStyle.marginLeft) + parseInt(cardStyle.marginRight)
+  // returns em
+  const cardWidth = parseFloat(skillCardProps.width) + 2 * parseFloat(skillCardProps.margin);
+  return cardWidth;
 }
 
 function resizeDeck() {
@@ -56,18 +67,29 @@ function resizeDeck() {
 
 <template>
   <div class="flex">
-    <button v-if="props.cardProps.length >= scrollThreshold" @click="scrollLeft">
+    <button v-if="props.cardProps.length > scrollThreshold" @click="scrollLeft">
       <font-awesome-icon icon="fa-solid fa-angle-left" size="2xl" />
     </button>
 
-    <div id='slide-deck' ref="scrollRef" class="overflow-x-auto snap-x snap-mandatory flex"
-      :style="{maxWidth: `${deckWidth}px`}">
-
-        <skill-card v-for="props in cardProps" v-bind="props" :key="props.imgAlt" class="p-2"/>
-
+    <div id='slide-deck' ref="scrollRef" class="overflow-x-auto snap-x snap-mandatory flex" 
+    :style="{maxWidth: `${deckWidth}em`}">
+      <flip-card v-for="props in cardProps" :key="props.imgAlt" class="snap-center"
+        :frontStyle="skillCardProps" :backStyle="skillCardProps">
+        <template #front-face>
+          <div class="flex flex-row mb-3 justify-center items-center img-container">
+            <div v-for="path in props.imgSrcs">
+              <img :src="path" :alt="props.imgAlt" style="width: 4.5em;" />
+            </div>
+          </div>
+          <span class="text-sm text-dark-gray dark:text-off-white">{{ props.title }}</span>
+        </template>
+        <template #back-face>
+          <span class="font-bold text-dark-gray dark:text-off-white">{{ props.exp }}</span>
+        </template>
+      </flip-card>
     </div>
 
-    <button v-if="props.cardProps.length >= scrollThreshold" @click="scrollRight">
+    <button v-if="props.cardProps.length > scrollThreshold" @click="scrollRight">
       <font-awesome-icon icon="fa-solid fa-angle-right" size="2xl" />
     </button>
   </div>
@@ -80,8 +102,14 @@ function resizeDeck() {
   scrollbar-width: none;
   /* Firefox */
 }
+
 #slide-deck::-webkit-scrollbar {
   display: none;
   /* Chrome, Safari, Opera */
+}
+
+.img-container {
+  width: 5em;
+  height: 5em;
 }
 </style>
