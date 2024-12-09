@@ -1,6 +1,4 @@
 <script>
-import { useRouter } from 'vue-router';
-
 export default {
   name: 'FullPageScroll',
   props: {
@@ -91,6 +89,8 @@ export default {
     },
     scrollToPage(index) {
       this.currentPage = index;
+      // this push gives this url: /?section="index"
+      this.$router.push({query: {section: index}}).catch(() => {});
       this.sendSectionNumber(index);
     },
 
@@ -130,6 +130,11 @@ export default {
         this.resizing = false
       }, 200)
     }
+  },
+  // Scroll to projects section when navigating back from a project.
+  beforeMount() {
+    const sectNumber = parseInt(this.$route.query.section, 10) || 0;
+    this.scrollToPage(sectNumber);
   },
   mounted() {
     // initial setup for screen
