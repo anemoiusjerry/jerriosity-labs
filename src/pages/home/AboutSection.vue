@@ -14,12 +14,11 @@ import StickyNote from '../../components/StickyNote.vue';
           </div>
           <p class="mt-4 text-justify text-dark-gray dark:text-off-white">
             I was born in northeastern China, next to the capital Beijing. At the age of 7, my parents whisked me away
-            to New Zealand where I grew up before I went to Australia for tertiary study. My double major in
-            mechatronics and
-            computer science at the University of Melbourne made me very good at integrating hardware with software.
+            to New Zealand where I grew up before I went to Australia for tertiary study. My double major in mechatronics 
+            and computer science at the University of Melbourne made me very good at integrating hardware with software.
             This landed me my first job at an industrial IoT startup. I slowly transitioned to remote work, taking small
             freelance jobs and travelling the world while I'm at it!
-            <br><br>Current location: <b>New Zealand</b> 🇳🇿.
+            <br><br>Current location: <b>New Zealand</b> 🇳🇿
           </p>
         </div>
 
@@ -66,10 +65,9 @@ import StickyNote from '../../components/StickyNote.vue';
           <p class="text-justify text-dark-gray dark:text-off-white">
             Programmers are seen as boring, but I'm here to prove otherwise! I think I lead a rather creative
             life. From a young age I loved to draw my own comics which now transitioned to pencil sketches. At
-            university I acted in a musical
-            production of Footloose and I finally learnt guitar to keep up the singing. On the sports front I play
-            tennis and row. Now that
-            Im based in Serbia I finally have a a reason to support Djokovic.
+            university I acted in a musical production of Footloose and I finally learnt guitar to keep up the singing. 
+            On the sports front I play tennis and row. Now that I have lived in Serbia for a year, I finally have a a 
+            reason to support Djokovic.
           </p>
         </div>
       </div>
