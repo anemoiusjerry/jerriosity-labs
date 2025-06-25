@@ -11,7 +11,7 @@ import ContactSection from './ContactSection.vue'
 import { useRoute, useRouter } from 'vue-router'
 
 // number of sections (no other use)
-const sections = ref([1, 2, 3, 4])
+const sections = ref([1, 2, 3, 4, 5])
 const isMobile = inject('isMobile')
 
 const emit = defineEmits(['update-home-section'])

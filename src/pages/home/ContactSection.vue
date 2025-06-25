@@ -21,9 +21,7 @@ function launchWhatsApp() {
             style="left:-20px; top:-20px"></div>
           <div class="absolute p-1 bg-blood-orange dark:bg-sky-blue" style="left:-32px; top:-32px"></div>
         </div>
-        <p class="p-5 mb-14 shadow-lg text-dark-gray bg-white dark:bg-light-gray dark:text-off-white">Have you got a
-          project, open position or simply want to
-          connect?</p>
+        <p class="p-5 flex justify-center mb-14 shadow-lg text-dark-gray bg-white dark:bg-light-gray dark:text-off-white">Got a project, contract or just want to learn more?</p>
         <h3 class="font-bold mb-16 text-center">Message Me!</h3>
 
         <div class="grid md:grid-cols-2 md:gap-6">
