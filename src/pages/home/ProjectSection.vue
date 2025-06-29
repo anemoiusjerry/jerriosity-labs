@@ -6,11 +6,11 @@ import { ProjectInfo } from '../../interfaces.ts';
 const resPath = '/projects'
 const projectsProfessional = ref<ProjectInfo[]>([
   {
-    title: 'Streamwise D.I.',
-    summary: 'First professional role as a Systems Engineer and then Engineering Manager at an Industrial IoT startup.',
-    date: 'Dec 2019',
-    image: `${resPath}/streamwise.png`,
-    link: 'projects/streamwise-di'
+    title: 'Kogan.com',
+    summary: 'Professional role as software engineer at Australian eCommerce giant, in the Order & Dispatch Management team.',
+    date: 'Mar 2025',
+    image: `${resPath}/kogan.png`,
+    link: ''
   },
   {
     title: 'Restored To Eden',
@@ -20,28 +20,28 @@ const projectsProfessional = ref<ProjectInfo[]>([
     link: 'projects/restored-to-eden'
   },
   {
-    title: 'Kogan.com',
-    summary: 'Professional role as software engineer at Australian eCommerce giant, in the Order & Dispatch Management team.',
-    date: 'Mar 2025',
-    image: `${resPath}/kogan.png`,
-    link: ''
+    title: 'Streamwise D.I.',
+    summary: 'First professional role as a Systems Engineer and then Engineering Manager at an Industrial IoT startup.',
+    date: 'Dec 2019',
+    image: `${resPath}/streamwise.png`,
+    link: 'projects/streamwise-di'
   }
 ])
 
 const projectsPersonal = ref<ProjectInfo[]>([
-  {
-    title: 'Rhombus AI',
-    summary: 'Recruitment project where I made a website for users to perform data type inference on large CSV files.',
-    date: 'Apr 2024',
-    image: `${resPath}/rhombus.jpg`,
-    link: 'projects/rhombus-ai'
-  },
   {
     title: 'This website!',
     summary: 'Website to showcase my skills and experience. Yes I also designed the logo too!',
     date: 'Aug 2024',
     image: `${resPath}/jerriositylabs.png`,
     link: 'projects/jerriosity-labs'
+  },
+  {
+    title: 'Rhombus AI',
+    summary: 'Recruitment project where I made a website for users to perform data type inference on large CSV files.',
+    date: 'Apr 2024',
+    image: `${resPath}/rhombus.jpg`,
+    link: 'projects/rhombus-ai'
   }
 ])
 
@@ -78,8 +78,8 @@ const scaleTimeline = () => {
 
 <template>
   <section>
-    <div id="project-section" class="mt-10 flex flex-col items-center">
-      <div class="flex title">
+    <div id="project-section" class="flex flex-col items-center">
+      <div class="my-8 flex title">
         <h3 class="font-bold">My Experience</h3>
         <div class="relative">
           <div class="p-4 absolute border-t-2 border-r-2 border-blood-orange dark:border-sky-blue"
@@ -88,40 +88,38 @@ const scaleTimeline = () => {
         </div>
       </div>
 
-      <!-- timeline cards -->
-      <div id="timeline" ref="timelineRef" class="overflow-x-auto snap-x snap-mandatory"
-        :style="{ maxWidth: `${timelineWidth}px` }">
-        <ol v-if="selected === 'Personal'" class="flex p-5">
-          <timeline-card v-for="(item, index) in projectsPersonal" 
+      <div id="project-content" class="flex w-full">
+        <!-- Timeline Cards (scrollable) -->
+        <div id="timeline" ref="timelineRef" class="flex-1 flex justify-center overflow-x-auto snap-x snap-mandatory"
+          :style="{ maxWidth: `${timelineWidth}px` }">
+          <ol v-if="selected === 'Personal'" class="flex p-5">
+             <timeline-card v-for="(item, index) in projectsPersonal" 
             :project="item" :hideLineLeft="index === 0" :hideLineRight="index === projectsPersonal.length - 1" 
             class="snap-start" />
-        </ol>
-        <ol v-if="selected === 'Professional'" class="flex p-5">
-          <timeline-card v-for="(item, index) in projectsProfessional" 
+          </ol>
+          <ol v-if="selected === 'Professional'" class="flex p-5">
+             <timeline-card v-for="(item, index) in projectsProfessional" 
             :project="item" :hideLineLeft="index === 0" :hideLineRight="index === projectsProfessional.length - 1" 
             class="snap-start" />
-        </ol>
-      </div>
+          </ol>
+        </div>
 
-    <div class="self-end me-40">
-            <!-- Card set selector -->
-      <div class="absolute top-64">
+        <!-- Selector (fixed on the right) -->
+        <div class="flex-shrink-0 self-center mb-14">
           <button
             v-for="option in options" :key="option" @click="selected = option"
-            class="flex items-center my-1"
+            class="flex items-center my-2"
             :class="{
               'text-primary': selected === option,
               'text-dark-gray dark:text-off-white': selected !== option
             }"
           >
             <div class="w-24 text-right">{{ option }}</div>
-            <!-- Indicator -->
             <font-awesome-icon v-show="selected === option" icon="fa-solid fa-minus" class="ml-2"/>
           </button>
         </div>
       </div>
     </div>
-
   </section>
 </template>
 
@@ -154,5 +152,12 @@ const scaleTimeline = () => {
 #timeline::-webkit-scrollbar {
   display: none;
   /* Chrome, Safari, Opera */
+}
+
+#project-content {
+  flex-direction: row;
+  @include breakpoint-down(small) {
+    flex-direction: column;
+  }
 }
 </style>
