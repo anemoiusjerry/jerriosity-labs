@@ -52,7 +52,7 @@ const backfaceStyle = computed<CSSProperties>(() => ({
           <span class="mb-2 text-lg font-bold">{{ props.project.title }}</span>
           <p class="font-normal block text-dark-gray dark:text-off-white">{{ props.project.summary }}</p>
         </div>
-        <router-link :to="props.project.link" class="text-left">
+        <router-link v-if="props.project.link != ''" :to="props.project.link" class="text-left">
           Learn More <font-awesome-icon icon="fa-solid fa-angle-right" />
         </router-link>
       </template>

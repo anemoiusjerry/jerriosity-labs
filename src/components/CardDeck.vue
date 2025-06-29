@@ -6,7 +6,7 @@ import { height, width } from '@fortawesome/free-brands-svg-icons/fa42Group';
 const props = defineProps({
   scrollThreshold: {
     type: Number,
-    default: 0
+    default: 3
   },
   cardProps: Array,
 })

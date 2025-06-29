@@ -24,12 +24,12 @@ const frontendCards = [
   //   title: "Angular",
   //   exp: "1+ year"
   // },  
-  {
-    imgSrcs: [`${ICON_PATH}/typescript.svg`],
-    imgAlt: "ts-icon",
-    title: "TypeScript",
-    exp: "3+ years"
-  },
+  // {
+  //   imgSrcs: [`${ICON_PATH}/typescript.svg`],
+  //   imgAlt: "ts-icon",
+  //   title: "TypeScript",
+  //   exp: "3+ years"
+  // },
   {
     imgSrcs: [`${ICON_PATH}/bootstrap.svg`],
     imgAltz: "bootstrap-icon",
@@ -41,6 +41,12 @@ const frontendCards = [
     imgAlt: "tailwind-icon",
     title: "Tailwind CSS",
     exp: "1+ years"
+  },
+  {
+    imgSrcs: [`${ICON_PATH}/react-native.svg`],
+    imgAlt: "react-native-icon",
+    title: "R. Native",
+    exp: "3+ years"
   }
 ]
 
@@ -73,6 +79,12 @@ const otherCards = [
     exp: "3+ years"
   },
   {
+    imgSrcs: [`${ICON_PATH}/aws.svg`],
+    imgAlt: "aws-icon",
+    title: "AWS",
+    exp: "1 year"
+  },
+  {
     imgSrcs: [`${ICON_PATH}/azure.svg`],
     imgAlt: "azure-icon",
     title: "Azure Cloud",
@@ -84,12 +96,7 @@ const otherCards = [
     title: 'SQL Server',
     exp: '5+ years'
   },
-  {
-    imgSrcs: [`${ICON_PATH}/react-native.svg`],
-    imgAlt: "react-native-icon",
-    title: "R. Native",
-    exp: "3+ years"
-  }
+
 ]
 
 onMounted(() => {
@@ -121,7 +128,7 @@ async function flipCards() {
           </p>
 
           <p class="p-6 text-right text-dark-gray dark:text-off-white">
-            My main stack is React, .NET, MySQL all hosted in Azure. However, for my side projects
+            My main stack is <b>React</b>, <b>.NET</b>, <b>SQL Server</b> all hosted in <b>Azure</b>. However, for my side projects
             I like to test out a variety of frameworks so I can stay update with the latest technologies.
           </p>
           <div class="relative">
