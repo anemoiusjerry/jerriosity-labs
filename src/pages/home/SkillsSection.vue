@@ -31,12 +31,6 @@ const frontendCards = [
   //   exp: "3+ years"
   // },
   {
-    imgSrcs: [`${ICON_PATH}/bootstrap.svg`],
-    imgAltz: "bootstrap-icon",
-    title: "Bootstrap",
-    exp: "4+ years"
-  },
-  {
     imgSrcs: [`${ICON_PATH}/tailwind.svg`],
     imgAlt: "tailwind-icon",
     title: "Tailwind CSS",
@@ -73,10 +67,10 @@ const backendCards = [
 
 const otherCards = [
   {
-    imgSrcs: [`${ICON_PATH}/docker.svg`],
-    imgAlt: "docker-icon",
-    title: "Docker",
-    exp: "3+ years"
+    imgSrcs: [`${ICON_PATH}/azure.svg`],
+    imgAlt: "azure-icon",
+    title: "Azure Cloud",
+    exp: "5+ years"
   },
   {
     imgSrcs: [`${ICON_PATH}/aws.svg`],
@@ -85,10 +79,16 @@ const otherCards = [
     exp: "1 year"
   },
   {
-    imgSrcs: [`${ICON_PATH}/azure.svg`],
-    imgAlt: "azure-icon",
-    title: "Azure Cloud",
-    exp: "5+ years"
+    imgSrcs: [`${ICON_PATH}/docker.svg`],
+    imgAlt: "docker-icon",
+    title: "Docker",
+    exp: "3+ years"
+  },
+  {
+    imgSrcs: [`${ICON_PATH}/terraform.svg`],
+    imgAlt: 'hashicorp-terraform-icon',
+    title: 'Terraform',
+    exp: '< 1 year'
   },
   {
     imgSrcs: [`${ICON_PATH}/msss.svg`],
@@ -96,7 +96,6 @@ const otherCards = [
     title: 'SQL Server',
     exp: '5+ years'
   },
-
 ]
 
 onMounted(() => {
@@ -129,7 +128,7 @@ async function flipCards() {
 
           <p class="p-6 text-right text-dark-gray dark:text-off-white">
             My main stack is <b>React</b>, <b>.NET</b>, <b>SQL Server</b> all hosted in <b>Azure</b>. However, for my side projects
-            I like to test out a variety of frameworks so I can stay update with the latest technologies.
+            I like to test out a variety of frameworks so I can stay up to date with the latest technologies.
           </p>
           <div class="relative">
             <div class="absolute p-5 border-b-2 border-r-2 border-blood-orange dark:border-sky-blue"
