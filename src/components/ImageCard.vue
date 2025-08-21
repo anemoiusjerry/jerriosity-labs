@@ -24,21 +24,17 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="max-w-sm bg-off-white rounded-lg shadow-lg dark:bg-gray-800">
-    <a href="#">
-        <img class="rounded-t-lg" :src="props.imgUrl" :alt="props.imgAlt" />
-    </a>
+  <a :href="props.articleUrl" target="_blank" class="max-w-sm bg-white rounded-lg shadow-lg dark:bg-gray-800 transform transition duration-300 hover:scale-105">
+    <img class="rounded-t-lg" :src="props.imgUrl" :alt="props.imgAlt" />
     <div class="p-5">
-        <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{props.title}}</h5>
-        </a>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{props.description}}</p>
-        <!-- <router-link v-if="props.project.link != ''" :to="props.project.link" class="text-left">
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{props.title}}</h5>
+        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 hide-for-mobile">{{props.description}}</p>
+        <span class="text-left">
           Learn More <font-awesome-icon icon="fa-solid fa-angle-right" />
-        </router-link> -->
-        <a :href="props.articleUrl" target="_blank" class="text-left">
-          Learn More <font-awesome-icon icon="fa-solid fa-angle-right" />
-        </a>
+        </span>
     </div>
-  </div>
+  </a>
 </template>
+
+<style lang="scss" scoped>
+</style>

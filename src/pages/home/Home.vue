@@ -34,10 +34,10 @@ function getSectionNumber(num) {
       <ProjectSection />
     </template>
     <template #section-3>
-      <AboutSection />
+      <LiteratureSection />
     </template>
     <template #section-4>
-      <LiteratureSection />
+      <AboutSection />
     </template>
   </full-page-scroll>
 </template>

@@ -9,7 +9,7 @@ import StickyNote from '../../components/StickyNote.vue';
       <div>
         <h4 class="font-bold">I Write Articles!</h4>
         <sticky-note class="text-lg tracking-tight" text="Every now and then - From tech guides 
-        to just musings, see my works below." />
+        to just musings, why not check it out." />
       </div>
 
       <!-- Article cards -->
