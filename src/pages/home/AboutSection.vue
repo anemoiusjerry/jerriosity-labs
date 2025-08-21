@@ -9,7 +9,7 @@ import StickyNote from '../../components/StickyNote.vue';
         <div>
           <div class="flex-for-mobile flex justify-between">
             <h4 class="mr-5 font-bold">About Me</h4>
-            <sticky-note class="text-lg tracking-tight font-bold" text="Chinese born, New Zealand raised. 
+            <sticky-note class="text-lg tracking-tight font-bold" text="China born, New Zealand raised. 
             Australia based." />
           </div>
           <p class="mt-4 text-justify text-dark-gray dark:text-off-white">
@@ -18,7 +18,7 @@ import StickyNote from '../../components/StickyNote.vue';
             and computer science at the University of Melbourne made me very good at integrating hardware with software.
             This landed me my first job at an industrial IoT startup. I slowly transitioned to remote work, taking small
             freelance jobs and travelling the world while I'm at it!
-            <br><br>Current location: <b>New Zealand</b> 🇳🇿
+            <br><br>Current location: <b>Australia</b> 🇦🇺
           </p>
         </div>
 

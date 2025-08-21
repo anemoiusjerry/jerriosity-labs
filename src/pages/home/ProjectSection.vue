@@ -6,11 +6,11 @@ import { ProjectInfo } from '../../interfaces.ts';
 const resPath = '/projects'
 const projectsProfessional = ref<ProjectInfo[]>([
   {
-    title: 'Kogan.com',
-    summary: 'Professional role as software engineer at Australian eCommerce giant, in the Order & Dispatch Management team.',
-    date: 'Mar 2025',
-    image: `${resPath}/kogan.png`,
-    link: ''
+    title: 'Streamwise D.I.',
+    summary: 'First professional role as a Systems Engineer and then Engineering Manager at an Industrial IoT startup.',
+    date: 'Dec 2019',
+    image: `${resPath}/streamwise.png`,
+    link: 'projects/streamwise-di'
   },
   {
     title: 'Restored To Eden',
@@ -20,29 +20,29 @@ const projectsProfessional = ref<ProjectInfo[]>([
     link: 'projects/restored-to-eden'
   },
   {
-    title: 'Streamwise D.I.',
-    summary: 'First professional role as a Systems Engineer and then Engineering Manager at an Industrial IoT startup.',
-    date: 'Dec 2019',
-    image: `${resPath}/streamwise.png`,
-    link: 'projects/streamwise-di'
-  }
+    title: 'Kogan.com',
+    summary: 'Professional role as software engineer at Australian eCommerce giant, in the Order & Dispatch Management team.',
+    date: 'Mar 2025',
+    image: `${resPath}/kogan.png`,
+    link: ''
+  },
 ])
 
 const projectsPersonal = ref<ProjectInfo[]>([
-  {
-    title: 'This website!',
-    summary: 'Website to showcase my skills and experience. Yes I also designed the logo too!',
-    date: 'Aug 2024',
-    image: `${resPath}/jerriositylabs.png`,
-    link: 'projects/jerriosity-labs'
-  },
   {
     title: 'Rhombus AI',
     summary: 'Recruitment project where I made a website for users to perform data type inference on large CSV files.',
     date: 'Apr 2024',
     image: `${resPath}/rhombus.jpg`,
     link: 'projects/rhombus-ai'
-  }
+  },
+    {
+    title: 'This website!',
+    summary: 'Website to showcase my skills and experience. Yes I also designed the logo too!',
+    date: 'Aug 2024',
+    image: `${resPath}/jerriositylabs.png`,
+    link: 'projects/jerriosity-labs'
+  },
 ])
 
 const timelineRef = ref<HTMLDivElement | null>(null)
