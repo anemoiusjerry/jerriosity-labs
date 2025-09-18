@@ -8,7 +8,6 @@ import SkillsSection from "./SkillsSection.vue"
 import ProjectSection from "./ProjectSection.vue"
 import AboutSection from './AboutSection.vue'
 import ContactSection from './ContactSection.vue'
-import { useRoute, useRouter } from 'vue-router'
 import LiteratureSection from './LiteratureSection.vue'
 
 // number of sections (no other use)

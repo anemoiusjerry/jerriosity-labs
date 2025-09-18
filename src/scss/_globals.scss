@@ -158,6 +158,13 @@ body.dark .navbar-float {
     padding: 2.5em;
   }
 }
+.article-page {
+  padding: 9em;
+  @include breakpoint-down(small) {
+    padding: 2.5em;
+    margin-top: 3.5em;
+  }
+}
 
 .type-title {
   font-size: x-large;
