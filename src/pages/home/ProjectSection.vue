@@ -16,14 +16,21 @@ const projectsProfessional = ref<ProjectInfo[]>([
     title: 'Restored To Eden',
     summary: 'Freelance work creating an automated formulation system for custom skin care products.',
     date: 'Apr 2020',
-    image: `${resPath}/rte.jpg`,
+    image: `${resPath}/rte.png`,
     link: 'projects/restored-to-eden'
   },
   {
     title: 'Kogan.com',
-    summary: 'Professional role as software engineer at Australian eCommerce giant, in the Order & Dispatch Management team.',
+    summary: 'Software Engineer at Australian eCommerce giant - Order & Dispatch Management team.',
     date: 'Mar 2025',
     image: `${resPath}/kogan.png`,
+    link: ''
+  },
+  {
+    title: 'Netwealth',
+    summary: 'Fullstack Developer for a leading fintech specialising in superannuation and portfolio management.',
+    date: 'Oct 2025',
+    image: `${resPath}/netwealth.png`,
     link: ''
   },
 ])
